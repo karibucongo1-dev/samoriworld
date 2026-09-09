@@ -1,0 +1,16 @@
+# Samori Systems (samori.co.uk)
+
+> UK-focused tech reviews and buying guides: consumer electronics, smart home, and software, with UK pricing (£) and UK retailer availability.
+
+## Reviews
+
+- [Tangem Wallet Review](https://www.samori.co.uk/tangem/): Card-based NFC crypto hardware wallet.
+- [Keurig K-Mini Review](https://www.samori.co.uk/keurig/): Compact single-serve pod coffee maker.
+- [Amazon Echo Dot Review](https://www.samori.co.uk/echo-dot/): Budget Alexa smart speaker.
+- [Apple AirPods Pro 3 Review](https://www.samori.co.uk/airpods-pro-3/): Flagship noise-cancelling wireless earbuds.
+- [Logitech G305 Lightspeed Review](https://www.samori.co.uk/logitech-g305/): Lightweight wireless gaming mouse.
+
+## Guides
+
+- [Best Portable Power Banks for UK Travelers](https://www.samori.co.uk/guides/best-portable-power-banks-uk/): Capacity, output, and weight compared across four brands.
+- [Top 5 Fast VPNs for UK Streaming & Security](https://www.samori.co.uk/guides/best-vpn-uk/): Pricing, servers, and encryption compared across five providers.
