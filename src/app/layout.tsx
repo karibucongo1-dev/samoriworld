@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
+import { SITE_NAME } from '@/lib/site-config';
+import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Samori.net',
-  description: 'Travel guides and destination inspiration from Samori.net.',
+  title: SITE_NAME,
+  description: 'Travel guides and destination inspiration.',
 };
 
 export default function RootLayout({
@@ -11,8 +13,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" className="h-full antialiased">
+      <body className="h-full bg-white dark:bg-black">{children}</body>
     </html>
   );
 }
