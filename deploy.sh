@@ -88,7 +88,7 @@ http_status() {
 smoke_test() {
   local failed=0 code hsts p
   echo "Smoke test against ${EXPECTED_SITE_URL}:"
-  for p in / /robots.txt /.well-known/security.txt; do
+  for p in / /robots.txt /.well-known/security.txt /consent.js /favicon.ico /privacy/; do
     code="$(http_status "${EXPECTED_SITE_URL}${p}")"
     if [[ "$code" == "200" ]]; then
       echo "  ok    200 ${p}"
@@ -145,6 +145,12 @@ main() {
   local dry
   dry="$(rsync -n "${rsync_flags[@]}" ./out/ "${remote}:${remote_path}/")"
   printf '%s\n' "$dry" | summarize_dry_run
+
+  if command -v python3 >/dev/null 2>&1; then
+    echo
+    echo "Build vs live site (informational, read-only):"
+    python3 scripts/compare-live.py || true
+  fi
   confirm_or_abort
 
   backup_remote "$remote" "$port" "$remote_path"
