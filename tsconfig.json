@@ -38,6 +38,7 @@
   ],
   "exclude": [
     "node_modules",
-    "samori-co-uk"
+    "samori-co-uk",
+    "incoming"
   ]
 }

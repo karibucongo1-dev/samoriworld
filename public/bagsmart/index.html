@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BAGSMART Hanging Toiletry Bag — Everything in its place, wherever you stay.</title>
+<meta name="description" content="The BAGSMART hanging toiletry bag unfolds into four see-through compartments on a swivel hook, with elastic loops that keep bottles upright and a clear pouch for liquids. Water-resistant, in medium and large.">
+<link rel="canonical" href="https://www.samori.net/bagsmart/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+--paper:#FFFFFF;
+--paper-2:#F4F4F5;
+--ink:#18181B;
+--ink-soft:#71717A;
+--rose:#0D9488;
+--rose-deep:#0F766E;
+--rosewood:#0D9488;
+--cyan:#0E7490;
+--brass:#0F766E;
+--line: rgba(0,0,0,0.08);
+padding-top: env(safe-area-inset-top, 0px);
+padding-bottom: env(safe-area-inset-bottom, 0px);
+box-sizing: border-box;
+}
+*{box-sizing:border-box;}
+@media (prefers-color-scheme: dark){
+:root:not([data-theme="light"]){
+--paper:#18181B; --paper-2:#27272A; --ink:#FAFAFA; --ink-soft:#A1A1AA;
+--line: rgba(255,255,255,0.12);
+}
+}
+:root[data-theme="dark"]{
+--paper:#18181B; --paper-2:#27272A; --ink:#FAFAFA; --ink-soft:#A1A1AA;
+--line: rgba(255,255,255,0.12);
+}
+html{scroll-padding-top: env(safe-area-inset-top, 0px); scroll-behavior:smooth;}
+html,body{height:100%;}
+body{
+margin:0; background:var(--paper); color:var(--ink);
+font-family:"Inter", system-ui, sans-serif; font-weight:400;
+-webkit-font-smoothing:antialiased;
+overflow-x:hidden;
+}
+img{max-width:100%; display:block;}
+h1,h2,h3{font-family:"Inter", system-ui, sans-serif; font-weight:800; margin:0; letter-spacing:-0.02em;}
+a{color:inherit;}
+a:focus-visible{outline:2px solid var(--rosewood); outline-offset:3px;}
+.wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
+
+/* ---------- Top bar ---------- */
+.topbar{
+position:sticky; top:0; z-index:40; background:var(--paper);
+border-bottom:1px solid var(--line);
+padding-top: env(safe-area-inset-top, 0px);
+}
+.topbar-inner{display:flex; align-items:center; justify-content:space-between; padding:16px 28px; max-width:1180px; margin:0 auto;}
+.wordmark{font-family:"Inter",sans-serif; font-weight:800; font-size:1.15rem; letter-spacing:-0.02em;}
+.topbar a.cta{
+background:var(--rosewood); color:#FFFFFF; text-decoration:none;
+padding:10px 20px; border-radius:9999px; font-size:0.86rem; font-weight:600;
+transition:background .2s ease;
+}
+.topbar a.cta:hover{background:var(--rose-deep);}
+
+/* ---------- Hero ---------- */
+.hero{padding:64px 0 40px;}
+.hero-grid{display:grid; grid-template-columns:1fr; gap:44px; align-items:center;}
+@media(min-width:900px){ .hero-grid{grid-template-columns: 0.92fr 1.08fr; gap:56px;} }
+.kicker{color:var(--rosewood); font-size:0.8rem; margin-bottom:18px; display:flex; align-items:center; gap:8px; font-weight:600; text-transform:uppercase; letter-spacing:0.16em;}
+.kicker .dot{width:5px; height:5px; border-radius:50%; background:var(--rosewood); display:inline-block;}
+h1.headline{font-size:clamp(2.4rem, 5vw, 3.6rem); line-height:1.04;}
+h1.headline em{font-style:normal; color:var(--rosewood); font-weight:800;}
+.sub{font-size:1.08rem; line-height:1.6; color:var(--ink-soft); max-width:46ch; margin-top:22px;}
+.hero-actions{display:flex; gap:14px; flex-wrap:wrap; margin-top:32px; align-items:center;}
+.btn-primary{
+background:var(--rosewood); color:#FFFFFF; text-decoration:none; font-weight:600;
+padding:15px 28px; border-radius:9999px; font-size:0.98rem; display:inline-block;
+transition: transform .15s ease, background .2s ease;
+}
+.btn-primary:hover{background:var(--rose-deep); transform:translateY(-1px);}
+.btn-ghost{
+text-decoration:none; color:var(--ink); font-size:0.95rem; font-weight:600; padding:15px 6px;
+border-bottom:1px solid var(--ink);
+}
+.hero-note{font-size:0.85rem; color:var(--ink-soft); margin-top:14px;}
+.hero-photo{position:relative;}
+.hero-photo img{border-radius:24px;}
+.hero-photo-tag{
+position:absolute; left:-14px; bottom:-18px; background:var(--paper);
+border:1px solid var(--line); padding:14px 18px; max-width:220px; border-radius:16px;
+font-size:0.84rem; color:var(--ink-soft); display:none; box-shadow:0 8px 24px rgba(0,0,0,0.08);
+}
+@media(min-width:900px){ .hero-photo-tag{display:block;} }
+.hero-photo-tag b{display:block; font-family:"Inter",sans-serif; font-weight:800; font-size:1.3rem; color:var(--ink); margin-bottom:2px;}
+
+/* ---------- Stats strip ---------- */
+.stats{border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:var(--paper-2);}
+.stats-grid{display:grid; grid-template-columns:repeat(2,1fr); }
+@media(min-width:760px){ .stats-grid{grid-template-columns:repeat(4,1fr);} }
+.stat{padding:26px 22px; border-right:1px solid var(--line); border-bottom:1px solid var(--line);}
+.stat:nth-child(2n){border-right:none;}
+@media(min-width:760px){ .stat{border-bottom:none;} .stat:nth-child(4){border-right:none;} .stat:nth-child(2n){border-right:1px solid var(--line);} }
+.stat b{display:block; font-family:"Inter",sans-serif; font-size:1.5rem; font-weight:800;}
+.stat span{font-size:0.82rem; color:var(--ink-soft);}
+
+/* ---------- Section shell ---------- */
+section{padding:88px 0;}
+.section-head{max-width:640px; margin-bottom:48px;}
+.section-head .label, .label{color:var(--rosewood); font-size:0.8rem; margin-bottom:14px; font-weight:600; text-transform:uppercase; letter-spacing:0.16em;}
+.section-head h2, h2.h2{font-size:clamp(1.8rem,3.4vw,2.6rem); line-height:1.12;}
+.section-head p, .body-p{color:var(--ink-soft); margin-top:16px; line-height:1.65; font-size:1.02rem;}
+
+/* ---------- Manifest (what fits) ---------- */
+.manifest{display:grid; grid-template-columns:1fr; gap:46px; align-items:start;}
+@media(min-width:940px){ .manifest{grid-template-columns:1.05fr 0.95fr;} }
+.manifest-photo img{border-radius:24px;}
+.manifest-list{border-top:1px solid var(--line);}
+.manifest-row{display:flex; justify-content:space-between; gap:20px; padding:17px 2px; border-bottom:1px solid var(--line);}
+.manifest-row .name{font-size:1.01rem;}
+.manifest-row .note{color:var(--ink-soft); font-size:0.88rem; text-align:right; max-width:48%;}
+
+/* ---------- Two-up feature ---------- */
+.convert{background:var(--paper-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+.convert-grid{display:grid; grid-template-columns:1fr; gap:50px; align-items:center;}
+@media(min-width:940px){ .convert-grid{grid-template-columns:1fr 1fr;} }
+.convert img{border-radius:24px;}
+.feature-list{list-style:none; margin:26px 0 0; padding:0; display:grid; gap:16px;}
+.feature-list li{display:flex; gap:14px; align-items:flex-start; font-size:0.98rem; line-height:1.5;}
+.feature-list .mark{width:7px; height:7px; margin-top:9px; background:var(--rosewood); flex:none; border-radius:50%;}
+
+/* ---------- Sizes ---------- */
+.size-grid{display:grid; grid-template-columns:1fr; gap:46px; align-items:center;}
+@media(min-width:940px){ .size-grid{grid-template-columns:0.95fr 1.05fr;} }
+.size-grid img{border-radius:24px;}
+.size-table{width:100%; border-collapse:collapse; margin-top:26px; font-size:0.95rem;}
+.size-table th, .size-table td{padding:14px 4px; border-bottom:1px solid var(--line); text-align:left;}
+.size-table th{font-weight:600; color:var(--ink-soft); font-size:0.82rem;}
+.size-table td:first-child{font-weight:600;}
+
+/* ---------- Detail callouts ---------- */
+.detail-grid{display:grid; grid-template-columns:1fr; gap:40px;}
+@media(min-width:900px){ .detail-grid{grid-template-columns:1.1fr 0.9fr;} }
+.detail-photo img{border-radius:24px;}
+.detail-cards{display:grid; gap:0;}
+.detail-card{padding:22px 0; border-bottom:1px solid var(--line);}
+.detail-card:first-child{padding-top:0;}
+.detail-card h3{font-size:1.08rem; font-weight:700; margin-bottom:6px;}
+.detail-card p{margin:0; color:var(--ink-soft); font-size:0.94rem; line-height:1.55;}
+
+/* ---------- CTA band ---------- */
+.ctaband{background:linear-gradient(135deg, var(--rosewood), var(--cyan)); color:#FFFFFF;}
+.ctaband .wrap{padding:70px 28px; text-align:center;}
+.ctaband h2{color:#FFFFFF; font-size:clamp(1.9rem,3.6vw,2.7rem);}
+.ctaband p{color:rgba(255,255,255,0.85); max-width:48ch; margin:16px auto 30px; line-height:1.6;}
+.ctaband .btn-primary{background:#FFFFFF; color:var(--rose-deep);}
+.ctaband .btn-primary:hover{background:#F4F4F5;}
+
+/* ---------- FAQ ---------- */
+.faq-list{border-top:1px solid var(--line); max-width:760px;}
+details{border-bottom:1px solid var(--line); padding:20px 2px;}
+summary{cursor:pointer; font-size:1.02rem; font-weight:600; list-style:none; display:flex; justify-content:space-between; align-items:center; gap:14px;}
+summary::-webkit-details-marker{display:none;}
+summary::after{content:"+"; font-family:"Inter",sans-serif; font-weight:700; font-size:1.3rem; color:var(--rosewood); flex:none;}
+details[open] summary::after{content:"–";}
+details p{color:var(--ink-soft); margin:14px 0 2px; line-height:1.6; font-size:0.95rem;}
+
+footer{border-top:1px solid var(--line); padding:40px 0; }
+.foot-row{display:flex; flex-wrap:wrap; justify-content:space-between; gap:14px; align-items:center; font-size:0.85rem; color:var(--ink-soft);}
+@media (prefers-reduced-motion: reduce){ *{transition:none !important; scroll-behavior:auto !important;} }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+<div class="topbar-inner">
+<div class="wordmark">Bagsmart</div>
+<a class="cta" href="https://www.amazon.co.uk/dp/B09KG325LH?th=1&amp;linkCode=ll2&amp;tag=omar0f8-21&amp;linkId=131a4eed2a417e9a08276375398ee8af&amp;ref_=as_li_ss_tl" target="_blank" rel="noopener sponsored">Check price on Amazon</a>
+</div>
+</div>
+
+<section class="hero">
+<div class="wrap hero-grid">
+<div>
+<div class="kicker"><span class="dot"></span>Hanging toiletry &amp; makeup bag</div>
+<h1 class="headline">Unpack once.<br><em>Find everything.</em></h1>
+<p class="sub">A wash bag that hangs from the back of a door or a towel rail and unfolds into four see-through compartments — so toiletries, makeup and skincare stay sorted and in view instead of spread across a hotel sink.</p>
+<div class="hero-actions">
+<a class="btn-primary" href="https://www.amazon.co.uk/dp/B09KG325LH?th=1&amp;linkCode=ll2&amp;tag=omar0f8-21&amp;linkId=131a4eed2a417e9a08276375398ee8af&amp;ref_=as_li_ss_tl" target="_blank" rel="noopener sponsored">Check price on Amazon</a>
+<a class="btn-ghost" href="#manifest">See what fits inside</a>
+</div>
+<div class="hero-note">Sold on Amazon · Water-resistant, quilted finish · Clear pouch included</div>
+</div>
+<div class="hero-photo">
+<img src="/bagsmart/Bagsmart1.avif" fetchpriority="high" alt="BAGSMART quilted hanging toiletry bag shown closed, unfolded, and with its clear zip pouch">
+<div class="hero-photo-tag"><b>Hang &amp; unfold</b>Four compartments on one swivel hook — nothing left in the case.</div>
+</div>
+</div>
+</section>
+
+<div class="stats">
+<div class="wrap stats-grid">
+<div class="stat"><b>4</b><span>See-through, zipped compartments</span></div>
+<div class="stat"><b>Swivel hook</b><span>Hangs from doors, rails and hooks</span></div>
+<div class="stat"><b>2 sizes</b><span>Medium and large</span></div>
+<div class="stat"><b>+ Clear pouch</b><span>Separate bag for liquids</span></div>
+</div>
+</div>
+
+<section id="manifest">
+<div class="wrap">
+<div class="section-head">
+<div class="label">What actually fits</div>
+<h2>A full bathroom shelf, folded into one bag.</h2>
+<p>Full-size shampoo, skincare, a makeup kit and brushes all go in — with the small liquids in the clear pouch, ready to lift out at airport security.</p>
+</div>
+<div class="manifest">
+<div class="manifest-photo"><img loading="lazy" src="/bagsmart/Bagsmart6.avif" alt="BAGSMART toiletry bag beside the bottles, makeup and brushes it holds, plus the clear pouch"></div>
+<div class="manifest-list">
+<div class="manifest-row"><span class="name">Top zip pockets</span><span class="note">Razors, hair ties, cotton pads and other small bits</span></div>
+<div class="manifest-row"><span class="name">Upper clear compartment</span><span class="note">Tall bottles held upright by elastic loops</span></div>
+<div class="manifest-row"><span class="name">Lower clear compartment</span><span class="note">Skincare, tubes and a second row of bottles</span></div>
+<div class="manifest-row"><span class="name">Bottom zip flap</span><span class="note">Flat items — face masks, wipes, a compact</span></div>
+<div class="manifest-row"><span class="name">Front pocket</span><span class="note">Brush slots and quick-grab makeup, open without unfolding</span></div>
+<div class="manifest-row"><span class="name">Clear zip pouch</span><span class="note">Travel-size liquids, kept separate for security</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<div class="convert">
+<div class="wrap">
+<section style="padding:88px 0 0;">
+<div class="section-head">
+<div class="label">Hang anywhere</div>
+<h2>Counter space is optional.</h2>
+</div>
+<div class="convert-grid">
+<div class="photo"><img loading="lazy" src="/bagsmart/Bagsmart4.avif" alt="BAGSMART swivel hook hanging from a door and a wooden rail"></div>
+<div>
+<p class="body-p" style="margin-top:0;">Small hotel bathrooms, shared hostel sinks, a campsite shower block — the hook turns to face whichever way you need and grips doors, towel rails and shower hooks. Unfold it once and your whole routine is at eye level for the rest of the trip.</p>
+<ul class="feature-list">
+<li><span class="mark"></span>Swivel hook turns so the bag faces you, whatever it hangs from</li>
+<li><span class="mark"></span>Folds back into a compact case with a carry handle</li>
+<li><span class="mark"></span>Clear panels let you see every item without opening a pocket</li>
+<li><span class="mark"></span>Works just as well standing flat in a bathroom cabinet at home</li>
+</ul>
+</div>
+</div>
+</section>
+<section style="padding:60px 0 88px;">
+<div class="convert-grid">
+<div>
+<div class="label">Keep bottles upright</div>
+<h2 class="h2" style="margin-bottom:16px;">No more leaks in your suitcase.</h2>
+<p class="body-p" style="margin-top:0;">Elastic loops in the main compartments hold bottles standing up, the way they'd sit on a shelf. Lids stay on top, contents stay in the bottle, and nothing tips over when the bag is packed on its side.</p>
+</div>
+<div class="photo"><img loading="lazy" src="/bagsmart/Bagsmart5.avif" alt="Hand opening a BAGSMART compartment with bottles held upright by elastic bands"></div>
+</div>
+</section>
+</div>
+</div>
+
+<section id="sizes">
+<div class="wrap">
+<div class="size-grid">
+<div><img loading="lazy" src="/bagsmart/Bagsmart2.avif" alt="BAGSMART medium and large sizes shown unfolded with measurements"></div>
+<div>
+<div class="label">Two sizes</div>
+<h2 class="h2">Pick the one that matches your routine.</h2>
+<p class="body-p">Medium suits a weekend or a lighter kit. Large gives the two main compartments extra height for full-size bottles — handy for longer trips or for sharing.</p>
+<table class="size-table">
+<thead><tr><th></th><th>Width</th><th>Main compartments (each)</th></tr></thead>
+<tbody>
+<tr><td>Medium</td><td>9½″</td><td>7¾″ tall</td></tr>
+<tr><td>Large</td><td>10½″</td><td>9″ tall</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+
+<section style="padding-top:0;">
+<div class="wrap">
+<div class="section-head">
+<div class="label">The details</div>
+<h2>Small things that make it easier to use.</h2>
+</div>
+<div class="detail-grid">
+<div class="detail-photo"><img loading="lazy" src="/bagsmart/Bagsmart3.avif" alt="Close-up of BAGSMART front pocket with makeup brushes, carry handle, water-resistant fabric and double zips"></div>
+<div class="detail-cards">
+<div class="detail-card">
+<h3>Easy-access front pocket</h3>
+<p>Brush slots and a clear panel for everyday makeup — reach it without unfolding the whole bag.</p>
+</div>
+<div class="detail-card">
+<h3>Water-resistant material</h3>
+<p>Splashes bead on the quilted surface, so a wet counter or a spilled bottle wipes straight off.</p>
+</div>
+<div class="detail-card">
+<h3>Double zippers</h3>
+<p>Open from either side and zip compartments closed around taller items.</p>
+</div>
+<div class="detail-card">
+<h3>Convenient carry handle</h3>
+<p>Folded up, it carries like a small case — easy to lift out of a suitcase or a gym bag.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<div class="ctaband">
+<div class="wrap">
+<h2>Pack it once for every trip.</h2>
+<p>Check the current price, sizes and colours on Amazon.</p>
+<a class="btn-primary" href="https://www.amazon.co.uk/dp/B09KG325LH?th=1&amp;linkCode=ll2&amp;tag=omar0f8-21&amp;linkId=131a4eed2a417e9a08276375398ee8af&amp;ref_=as_li_ss_tl" target="_blank" rel="noopener sponsored">Check price on Amazon</a>
+</div>
+</div>
+
+<section>
+<div class="wrap">
+<div class="section-head">
+<div class="label">Questions</div>
+<h2>Before you pack it.</h2>
+</div>
+<div class="faq-list">
+<details open>
+<summary>Which size should I choose?</summary>
+<p>Medium is enough for a weekend kit or travel-size bottles. Choose large if you carry full-size shampoo and conditioner, or share the bag with someone else.</p>
+</details>
+<details>
+<summary>Can I take the clear pouch through airport security?</summary>
+<p>The clear zip pouch is designed to hold travel-size liquids so you can lift them out at screening. Liquid rules differ by airport and country, so check your airline's current limits before you fly.</p>
+</details>
+<details>
+<summary>Is it waterproof?</summary>
+<p>The outer material is water-resistant, so splashes and damp counters wipe off. It isn't designed to be submerged.</p>
+</details>
+<details>
+<summary>What can it hang from?</summary>
+<p>The swivel hook fits most door tops, towel rails, shower hooks and hanging rods. It also stands flat on a counter or shelf when there's nowhere to hang it.</p>
+</details>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="wrap foot-row">
+<span>BAGSMART Hanging Toiletry Bag</span>
+<span>As an Amazon Associate, this page may earn from qualifying purchases.</span>
+</div>
+</footer>
+
+</body>
+</html>
