@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import JsonLd from '@/components/JsonLd';
 import TravelpayoutsWidget from '@/components/TravelpayoutsWidget';
 
 export const metadata: Metadata = {
@@ -147,10 +148,7 @@ export default function BaliBudgetGuidePage() {
         </dl>
       </section>
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
     </main>
   );
 }
