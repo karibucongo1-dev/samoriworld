@@ -2,7 +2,7 @@
 """Compare a local static export (out/) with the live site, route by route.
 
 Read-only: only sends GET requests. Exit status is 1 unless every route is
-IDENTICAL or EQUIVALENT, so it can gate a deploy (and any future rsync --delete).
+IDENTICAL, EQUIVALENT or CONTENT-MATCH, so it can gate a deploy (and any future rsync --delete).
 """
 import argparse
 import difflib
@@ -19,11 +19,12 @@ ORIGIN_FLAGS = ("emrld", "cdn.tailwindcss", "tpembd", "metricool")
 class Page(HTMLParser):
     def __init__(self):
         super().__init__()
-        self.text, self.urls, self.skip = [], set(), 0
+        self.text, self.urls, self.skip, self.script_text, self.in_script, self.buf = [], set(), 0, [], False, ""
 
     def handle_starttag(self, tag, attrs):
         if tag in ("script", "style"):
             self.skip += 1
+            self.in_script, self.buf = tag == "script", ""
         for key, value in attrs:
             if key in ("href", "src") and value and value.startswith("http"):
                 self.urls.add(value.split("?")[0])
@@ -33,18 +34,25 @@ class Page(HTMLParser):
     def handle_endtag(self, tag):
         if tag in ("script", "style"):
             self.skip = max(0, self.skip - 1)
+            if self.in_script and "__next_f" not in self.buf and "self.__next" not in self.buf:
+                self.script_text.append(self.buf)
+            self.in_script = False
 
     def handle_data(self, data):
-        if not self.skip:
+        if self.skip:
+            self.buf += data
+        else:
             data = " ".join(data.split())
             if data:
                 self.text.append(data)
 
 
 def parse(raw):
+    raw = re.sub(r"<!--.*?-->", "", raw, flags=re.S)
     page = Page()
     page.feed(raw)
-    flags = {f for f in ORIGIN_FLAGS if f in raw}
+    evidence = " ".join(page.urls) + " " + " ".join(page.script_text)
+    flags = {f for f in ORIGIN_FLAGS if f in evidence}
     return page, flags
 
 
@@ -105,7 +113,17 @@ def main():
     parser.add_argument("--base", default="https://www.samori.net")
     parser.add_argument("--routes", default=os.path.join(os.path.dirname(__file__), "live-routes.txt"))
     parser.add_argument("--snapshot", help="folder to read live pages from, or fill on first run")
+    parser.add_argument("--detail", metavar="ROUTE", help="print the visible-text differences for one route and exit")
     args = parser.parse_args()
+
+    if args.detail:
+        status, live = fetch(args.base, args.detail, args.snapshot)
+        built = open(out_path(args.out, args.detail), "rb").read()
+        live_text, built_text = parse(live.decode("utf-8", "replace"))[0].text, parse(built.decode("utf-8", "replace"))[0].text
+        for line in difflib.unified_diff(live_text, built_text, "live", "build", lineterm="", n=0):
+            if not line.startswith(("---", "+++", "@@")):
+                print(line[:160])
+        return 0
 
     routes = [line.strip() for line in open(args.routes) if line.strip() and not line.startswith("#")]
     results = []
@@ -125,7 +143,12 @@ def main():
             ):
                 results.append((route, "EQUIVALENT", "same content, only Next build hashes differ"))
             elif path.endswith(".html"):
-                results.append((route, "DIFFERENT", describe_difference(live.decode("utf-8", "replace"), built.decode("utf-8", "replace"))))
+                live_page, live_flags = parse(live.decode("utf-8", "replace"))
+                built_page, built_flags = parse(built.decode("utf-8", "replace"))
+                if live_page.text == built_page.text and live_page.urls == built_page.urls and live_flags == built_flags:
+                    results.append((route, "CONTENT-MATCH", "same text, links and third-party scripts; markup differs"))
+                else:
+                    results.append((route, "DIFFERENT", describe_difference(live.decode("utf-8", "replace"), built.decode("utf-8", "replace"))))
             else:
                 results.append((route, "DIFFERENT", f"live {len(live)} bytes, build {len(built)} bytes"))
 
@@ -148,7 +171,7 @@ def main():
     if extra:
         print("Built but not on the live route list:", ", ".join(sorted(extra)))
 
-    return 0 if all(status in ("IDENTICAL", "EQUIVALENT") for _, status, _ in results) else 1
+    return 0 if all(status in ("IDENTICAL", "EQUIVALENT", "CONTENT-MATCH") for _, status, _ in results) else 1
 
 
 if __name__ == "__main__":
