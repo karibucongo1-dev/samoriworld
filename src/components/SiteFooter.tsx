@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import CookieSettingsButton from '@/components/CookieSettingsButton';
 import { SITE_NAME, SITE_TAGLINE } from '@/lib/site-config';
 
 const socialLinks = [
@@ -68,6 +69,12 @@ export default function SiteFooter() {
         </div>
         <div className="mt-10 border-t border-black/5 pt-6 text-center text-xs text-zinc-400 dark:border-white/10 dark:text-zinc-500 sm:text-left">
           {SITE_TAGLINE}
+          <div data-samori-legal="" className="mt-2">
+            <a href="/privacy/" className="underline">
+              Privacy
+            </a>{' '}
+            · <CookieSettingsButton />
+          </div>
         </div>
       </div>
     </footer>

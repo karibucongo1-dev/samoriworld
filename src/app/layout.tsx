@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { SITE_NAME } from '@/lib/site-config';
 import './globals.css';
 
@@ -14,7 +15,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="h-full antialiased">
-      <body className="h-full bg-white dark:bg-black">{children}</body>
+      <body className="h-full bg-white dark:bg-black">
+        {children}
+        <Script src="/consent.js" strategy="afterInteractive" />
+      </body>
     </html>
   );
 }
