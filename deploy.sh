@@ -111,6 +111,13 @@ smoke_test() {
     echo "  FAIL  ${code} POST / (expected 405)"
     failed=1
   fi
+  listing="$(curl -s --max-time 20 "${EXPECTED_SITE_URL}/_next/static/" || true)"
+  if [[ "$listing" == *"Index of"* ]]; then
+    echo "  FAIL  directory listing is still on (/_next/static/)"
+    failed=1
+  else
+    echo "  ok    no directory listing on /_next/static/"
+  fi
   return "$failed"
 }
 

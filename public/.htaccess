@@ -1,3 +1,6 @@
+# Disable directory listings (audit follow-up)
+Options -Indexes
+
 # Security headers (added 2026-09-25)
 <IfModule mod_headers.c>
   Header always set Strict-Transport-Security "max-age=604800"
