@@ -15,7 +15,7 @@ function handMadeRoutes(): string[] {
     for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
       const full = path.join(dir, entry.name);
       if (entry.isDirectory()) walk(full);
-      else if (entry.name === 'index.html') {
+      else if (entry.name === 'index.html' && !/name="robots"\s+content="noindex/.test(fs.readFileSync(full, 'utf8'))) {
         routes.push('/' + path.relative(root, dir).split(path.sep).join('/') + '/');
       }
     }
