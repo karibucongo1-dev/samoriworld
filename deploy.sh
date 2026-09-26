@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Required env: NAMECHEAP_HOST, NAMECHEAP_USER. Optional: NAMECHEAP_PATH, NAMECHEAP_SSH_PORT.
+# Optional env (defaults in brackets): NAMECHEAP_HOST [premium354.web-hosting.com], NAMECHEAP_USER [samopsep], NAMECHEAP_PATH, NAMECHEAP_SSH_PORT [21098].
 # Credentials never live in this file.
 
 EXPECTED_REMOTE_PATH="/home/samopsep/public_html"
@@ -50,12 +50,12 @@ check_local_build() {
 summarize_dry_run() {
   local changes new updated total
   changes="$(cat)"
-  new="$(printf '%s\n' "$changes" | grep -c '^>f+++++++++' || true)"
-  updated="$(printf '%s\n' "$changes" | grep -c '^>f' || true)"
+  new="$(printf '%s\n' "$changes" | grep -c '^<f+++++++++' || true)"
+  updated="$(printf '%s\n' "$changes" | grep -c '^<f' || true)"
   updated=$((updated - new))
   total=$((new + updated))
   echo "Dry run: ${new} new file(s), ${updated} changed file(s). Nothing on the server will be deleted."
-  printf '%s\n' "$changes" | grep '^>f' | sed -n '1,25p' || true
+  printf '%s\n' "$changes" | grep '^<f' | sed -n '1,25p' || true
   if ((total > 25)); then
     echo "  ... and $((total - 25)) more"
   fi
@@ -65,7 +65,7 @@ confirm_or_abort() {
   local answer
   [[ -t 0 ]] || die "no interactive terminal to confirm on"
   read -r -p "Proceed with the sync? [y/N] " answer
-  [[ "$answer" == "y" || "$answer" == "Y" ]] || die "cancelled, nothing was changed on the server"
+  [[ "${answer,,}" == "y" || "${answer,,}" == "yes" ]] || die "cancelled, nothing was changed on the server"
 }
 
 backup_remote() {
@@ -124,8 +124,8 @@ smoke_test() {
 main() {
   cd "$(dirname "${BASH_SOURCE[0]}")"
 
-  : "${NAMECHEAP_HOST:?Set NAMECHEAP_HOST (e.g. samori.net)}"
-  : "${NAMECHEAP_USER:?Set NAMECHEAP_USER (your cPanel SSH username)}"
+  : "${NAMECHEAP_HOST:=premium354.web-hosting.com}"
+  : "${NAMECHEAP_USER:=samopsep}"
   local remote_path="${NAMECHEAP_PATH:-${EXPECTED_REMOTE_PATH}/}"
   local port="${NAMECHEAP_SSH_PORT:-21098}"
   local remote="${NAMECHEAP_USER}@${NAMECHEAP_HOST}"
