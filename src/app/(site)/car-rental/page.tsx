@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Newsletter from '@/components/Newsletter';
 import ProviderLinks from '@/components/ProviderLinks';
-import SearchForm from '@/components/SearchForm';
 import TravelpayoutsEmbed from '@/components/TravelpayoutsEmbed';
 import { CAR_RENTAL_WIDGET_SRC } from '@/lib/travelpayouts';
 
@@ -19,14 +18,6 @@ export default function CarRentalPage() {
           <h1 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-5xl">Compare Car Rentals in 190+ Countries</h1>
           <p className="mt-5 max-w-2xl text-lg text-zinc-600 dark:text-zinc-400">We check 6+ providers so you get the best price, every time — no hidden fees, ever.</p>
           <div className="mt-10 w-full">
-            <SearchForm
-              submitLabel="Search Cars"
-              fields={[
-                { name: 'pick-up-location', label: 'Pick-up location', type: 'text', placeholder: 'City or airport' },
-                { name: 'pick-up-date', label: 'Pick-up date', type: 'date' },
-                { name: 'drop-off-date', label: 'Drop-off date', type: 'date' },
-              ]}
-            />
             <div id="samori-car-rental-widget" className="w-full max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-sm border border-black/5">
               <TravelpayoutsEmbed src={CAR_RENTAL_WIDGET_SRC} />
             </div>

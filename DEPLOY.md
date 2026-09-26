@@ -68,5 +68,5 @@ Merge the branch into `main` and push, so `main` always matches the live site. K
 
 ## Known issues (26 Sep 2026)
 
-- The car-rental search box (`src/components/SearchForm.tsx`) does not submit anywhere. The hotel box uses `src/components/KlookHotelSearch.tsx` (Klook city ids, tracked via Travelpayouts).
+- The hotel box uses `src/components/KlookHotelSearch.tsx` (Klook city ids, tracked via Travelpayouts).
 - 2 Oct 2026: raise HSTS to `max-age=31536000` and switch the CSP from report-only to enforced on samori.net, samori.co.uk and samori.io, after checking browser consoles for CSP violations. For samori.net change `public/.htaccess` and deploy.
