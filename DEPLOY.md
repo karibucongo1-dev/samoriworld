@@ -75,7 +75,6 @@ Merge the branch into `main` and push, so `main` always matches the live site. K
 
 - 2 Oct 2026: HSTS to 1 year and enforce the CSP on samori.net, samori.co.uk and samori.io (calendar reminder). Check browser consoles first.
 - 3 Oct 2026: same switch for karibucongo.com, editing its live `.htaccess` directly (calendar reminder).
-- Car-rental page: headline claims "190+ Countries" and "6+ providers"; Localrent covers about 50 countries. Consider toning down, as done for hotels.
 - karibucongo.com hotels page: search box is still dead. Klook has no Kinshasa hotels, so decide what Congo-focused visitors should see.
 - karibucongo.com is not in git; its changes were made on the server (backups in `/home/samopsep/backups`).
 - Car-rental widget: to change its default location, pick a specific city (not just a country) in the Travelpayouts widget builder and test Find before deploying.
