@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Newsletter from '@/components/Newsletter';
-import SearchForm from '@/components/SearchForm';
+import KlookHotelSearch from '@/components/KlookHotelSearch';
 
 export const metadata: Metadata = {
   title: 'Hotels — Compare Booking.com, Agoda & More',
@@ -16,14 +16,7 @@ export default function HotelsPage() {
           <h1 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-5xl">Find the Right Stay, Every Time</h1>
           <p className="mt-5 max-w-2xl text-lg text-zinc-600 dark:text-zinc-400">We check Booking.com, Agoda, and more so you get the best rate — free cancellation on most stays.</p>
           <div className="mt-10 w-full">
-            <SearchForm
-              submitLabel="Search Hotels"
-              fields={[
-                { name: 'destination', label: 'Destination', type: 'text', placeholder: 'City or hotel' },
-                { name: 'check-in', label: 'Check-in', type: 'date' },
-                { name: 'check-out', label: 'Check-out', type: 'date' },
-              ]}
-            />
+            <KlookHotelSearch />
           </div>
         </div>
       </section>
