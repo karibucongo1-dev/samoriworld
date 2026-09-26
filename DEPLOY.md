@@ -102,14 +102,13 @@ After deploying, commit the site changes and the updated `last-sync.sha256`, so 
 ## To do (noted 26 Sep 2026)
 
 - 2 Oct 2026: HSTS to 1 year and enforce the CSP on samori.net, samori.co.uk and samori.io (calendar reminder). Check browser consoles first.
-- 3 Oct 2026: same switch for karibucongo.com, editing its live `.htaccess` directly (calendar reminder).
+- 3 Oct 2026: same switch for karibucongo.com: edit `karibucongo/site/.htaccess` and run `./deploy-karibucongo.sh` (calendar reminder).
 - karibucongo.com hotels page: uses `karibucongo/site/hotel-search.js` (at the site root, loaded on every page as `/hotel-search.js?v=2`; bump `v` in the pages after any change). Klook has no Kinshasa hotels; revisit if another hotel partner covering Kinshasa is approved.
 - Car-rental widget: to change its default location, pick a specific city (not just a country) in the Travelpayouts widget builder and test Find before deploying.
 
 ### Optional, when there is time
 
-- samori.io (samori.co.uk account, business101): the contact form shows "sent" but sends nothing; replace it with an email link. Its page title is empty after loading.
-- karibucongo.com: 27 MB of `*.zip` image bundles under `destinations/` are publicly downloadable; delete them from the server if they are not needed. Several photos are 3 to 8 MB; resizing them would speed up the destination pages.
+- karibucongo.com: 27 MB of `*.zip` image bundles under `destinations/` are publicly downloadable. They are not in git and the deploy never deletes, so remove them on the server (cPanel File Manager) if they are not needed.
 
 ### Done 26 Sep 2026
 
@@ -117,3 +116,5 @@ After deploying, commit the site changes and the updated `last-sync.sha256`, so 
 - samori.io: POST blocked (405) and `/privacy/` added with a footer link.
 - Backups: old deploy backups and snapshot folders removed; deploys now keep the newest 3 per site.
 - karibucongo.com brought into git (`karibucongo/site/`, `deploy-karibucongo.sh`).
+- samori.io: contact form replaced with a "Send by email" link that opens the visitor's email app, and the page title, description and canonical are set.
+- karibucongo.com: 15 oversized photos (up to 8 MB) resized to at most 1920 px, same names and formats, 40.8 MB down to 6.7 MB.
