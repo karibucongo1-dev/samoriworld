@@ -78,3 +78,10 @@ Merge the branch into `main` and push, so `main` always matches the live site. K
 - karibucongo.com hotels page: now uses `karibucongo/hotel-search.js` (uploaded to the site root, loaded on all 33 pages as `/hotel-search.js?v=2`; bump `v` after any change). Klook has no Kinshasa hotels; revisit if another hotel partner covering Kinshasa is approved.
 - karibucongo.com is not in git; its changes were made on the server (backups in `/home/samopsep/backups`).
 - Car-rental widget: to change its default location, pick a specific city (not just a country) in the Travelpayouts widget builder and test Find before deploying.
+
+### Optional, when there is time
+
+- karibucongo.com sitemap: lists 19 URLs but the site has about 32 pages, and `/privacy/` is missing.
+- samori.io: POST requests are not blocked and there is no privacy page (it loads no trackers, so low priority).
+- Backups: each deploy keeps a ~100 MB copy in `/home/samopsep/deploy-backups/`. Review the total size and decide which to keep (ask before deleting).
+- Bring karibucongo.com into git so it gets the same deploy process and history as samori.net.
