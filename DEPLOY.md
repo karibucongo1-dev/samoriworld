@@ -28,7 +28,7 @@ test -f out/.htaccess && test -f out/robots.txt && test -f out/.well-known/secur
 
 ## 4. Backup you control (big deploys)
 
-`deploy.sh` keeps its own backup in `/home/samopsep/deploy-backups/`. For big changes also zip `public_html` in cPanel File Manager (Compress, Zip Archive) to `/home/samopsep/backups/public_html-pre-deploy-YYYY-MM-DD.zip` and check it is tens of MB.
+`deploy.sh` keeps its own backup in `/home/samopsep/deploy-backups/` (the newest 3 per site). For big changes also zip `public_html` in cPanel File Manager (Compress, Zip Archive) to `/home/samopsep/backups/public_html-pre-deploy-YYYY-MM-DD.zip` and check it is tens of MB.
 
 ## 5. Deploy
 
@@ -42,7 +42,7 @@ Host and user default to `premium354.web-hosting.com` and `samopsep`; override w
 2. Prints a dry run: `N new file(s), N changed file(s)` and the first 25 files.
 3. Asks `Proceed with the sync? [y/N]`. Type `y` or `yes`; anything else cancels with nothing changed.
 
-Answer no if the list contains anything outside `public_html`, any deletion, or files you don't recognise. After the upload it runs a smoke test (home, robots, security.txt, consent.js, privacy, HSTS, POST 405, no directory listing).
+Answer no if the list contains anything outside `public_html`, any deletion, or files you don't recognise. After the upload it runs a smoke test (home, robots, security.txt, consent.js, privacy, HSTS, POST 405, no directory listing). If that passes, it keeps the newest 3 backups of this site in `deploy-backups` and deletes older ones (set `KEEP_BACKUPS=5` to keep more).
 
 ## 6. Check the live site
 
@@ -66,6 +66,34 @@ In a private window: the consent banner shows on the home page, `/bagsmart/`, `/
 
 Merge the branch into `main` and push, so `main` always matches the live site. Keep `deploy.sh` additive.
 
+## karibucongo.com
+
+karibucongo.com is kept in git as the **live built site** in `karibucongo/site/` (HTML, JS, images), not as Next.js source. Its old source on the server (`karibucongo-site-source`, last touched 5 Sep) no longer matches the site, so edit the files in `karibucongo/site/` directly.
+
+- Server: premium354, `/home/samopsep/karibucongo.com` (addon domain of samori.net, same SSH login).
+- Not in git on purpose: `*.zip` image bundles, `*.bak*` files and `.well-known/ssl-manager/`. They stay on the server; the scripts skip them.
+- `karibucongo/last-sync.sha256` records every file's checksum at the last pull or deploy. Commit it with the site.
+
+**Import or refresh from the live site** (read-only on the server):
+
+```
+scripts/pull-karibucongo.sh
+git add karibucongo && git commit -m 'karibucongo.com: sync from live site'
+```
+
+**Deploy** after editing files in `karibucongo/site/`:
+
+```
+./deploy-karibucongo.sh
+```
+
+It works like `deploy.sh`: additive, dry run, `Proceed? [y/N]`, backup to `deploy-backups/karibucongo.com-*.tar.gz`, smoke test (the `deploy.sh` checks plus sitemap, hotel-search.js, /hotels/, a destination page), then keeps the newest 3 backups. Before anything else it compares the server with `last-sync.sha256`:
+
+- `EDITED` means someone changed that live file by hand since the last sync. The deploy stops, because it would overwrite the edit. Run `scripts/pull-karibucongo.sh`, commit, redo your change on top and deploy again.
+- `ADDED` / `REMOVED` are only warnings (added files stay on the server; removed ones get uploaded again). Pull to bring git up to date.
+
+After deploying, commit the site changes and the updated `last-sync.sha256`, so `main` matches the live site. Please avoid editing karibucongo.com in cPanel from now on; if you must, pull straight afterwards.
+
 ## Known issues (26 Sep 2026)
 
 - The hotel box uses `src/components/KlookHotelSearch.tsx` (Klook city ids, tracked via Travelpayouts).
@@ -75,13 +103,17 @@ Merge the branch into `main` and push, so `main` always matches the live site. K
 
 - 2 Oct 2026: HSTS to 1 year and enforce the CSP on samori.net, samori.co.uk and samori.io (calendar reminder). Check browser consoles first.
 - 3 Oct 2026: same switch for karibucongo.com, editing its live `.htaccess` directly (calendar reminder).
-- karibucongo.com hotels page: now uses `karibucongo/hotel-search.js` (uploaded to the site root, loaded on all 33 pages as `/hotel-search.js?v=2`; bump `v` after any change). Klook has no Kinshasa hotels; revisit if another hotel partner covering Kinshasa is approved.
-- karibucongo.com is not in git; its changes were made on the server (backups in `/home/samopsep/backups`).
+- karibucongo.com hotels page: uses `karibucongo/site/hotel-search.js` (at the site root, loaded on every page as `/hotel-search.js?v=2`; bump `v` in the pages after any change). Klook has no Kinshasa hotels; revisit if another hotel partner covering Kinshasa is approved.
 - Car-rental widget: to change its default location, pick a specific city (not just a country) in the Travelpayouts widget builder and test Find before deploying.
 
 ### Optional, when there is time
 
-- karibucongo.com sitemap: lists 19 URLs but the site has about 32 pages, and `/privacy/` is missing.
-- samori.io: POST requests are not blocked and there is no privacy page (it loads no trackers, so low priority).
-- Backups: each deploy keeps a ~100 MB copy in `/home/samopsep/deploy-backups/`. Review the total size and decide which to keep (ask before deleting).
-- Bring karibucongo.com into git so it gets the same deploy process and history as samori.net.
+- samori.io (samori.co.uk account, business101): the contact form shows "sent" but sends nothing; replace it with an email link. Its page title is empty after loading.
+- karibucongo.com: 27 MB of `*.zip` image bundles under `destinations/` are publicly downloadable; delete them from the server if they are not needed. Several photos are 3 to 8 MB; resizing them would speed up the destination pages.
+
+### Done 26 Sep 2026
+
+- karibucongo.com sitemap: now lists all 28 indexable pages (`/privacy/` is `noindex`, the Bali post's canonical is samori.net). Submitted to Search Console and Bing.
+- samori.io: POST blocked (405) and `/privacy/` added with a footer link.
+- Backups: old deploy backups and snapshot folders removed; deploys now keep the newest 3 per site.
+- karibucongo.com brought into git (`karibucongo/site/`, `deploy-karibucongo.sh`).

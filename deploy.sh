@@ -81,6 +81,25 @@ backup_remote() {
     && ls -l $(printf '%q' "$BACKUP_ARCHIVE")"
 }
 
+# Keeps the newest KEEP_BACKUPS [3] deploy backups of this site and deletes older ones.
+# Only touches files named exactly like backup_remote's archives for this site.
+prune_backups() {
+  local remote="$1" port="$2" path="$3" keep="${KEEP_BACKUPS:-3}" dir base old
+  [[ "$keep" =~ ^[1-9][0-9]*$ ]] || die "KEEP_BACKUPS must be a whole number of at least 1"
+  dir="$(dirname "$path")/deploy-backups"
+  base="$(basename "$path")"
+  old="$(ssh -p "$port" "$remote" "cd $(printf '%q' "$dir") && ls -1 -- $(printf '%q' "$base")-????????-??????.tar.gz 2>/dev/null | LC_ALL=C sort -r | tail -n +$((keep + 1))" || true)"
+  if [[ -z "$old" ]]; then
+    echo "Backups: keeping all (${keep} or fewer for ${base})."
+    return 0
+  fi
+  echo "Backups: keeping the newest ${keep} for ${base}, deleting:"
+  # shellcheck disable=SC2086  # $old is a newline list of safe, pattern-matched names
+  printf '  %s\n' $old
+  # shellcheck disable=SC2086
+  ssh -p "$port" "$remote" "cd $(printf '%q' "$dir") && rm -f -- $(printf '%q ' $old)"
+}
+
 http_status() {
   curl -s -o /dev/null -w '%{http_code}' --max-time 20 "$@" || true
 }
@@ -161,6 +180,7 @@ main() {
     echo "Restore: ssh -p ${port} ${remote} 'tar -xzf ${BACKUP_ARCHIVE} -C $(dirname "$remote_path")'" >&2
     exit 1
   fi
+  prune_backups "$remote" "$port" "$remote_path"
   echo "Deploy complete. Backup kept at ${BACKUP_ARCHIVE}"
 }
 
