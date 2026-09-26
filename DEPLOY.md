@@ -106,10 +106,6 @@ After deploying, commit the site changes and the updated `last-sync.sha256`, so 
 - karibucongo.com hotels page: uses `karibucongo/site/hotel-search.js` (at the site root, loaded on every page as `/hotel-search.js?v=2`; bump `v` in the pages after any change). Klook has no Kinshasa hotels; revisit if another hotel partner covering Kinshasa is approved.
 - Car-rental widget: to change its default location, pick a specific city (not just a country) in the Travelpayouts widget builder and test Find before deploying.
 
-### Optional, when there is time
-
-- karibucongo.com: 27 MB of `*.zip` image bundles under `destinations/` are publicly downloadable. They are not in git and the deploy never deletes, so remove them on the server (cPanel File Manager) if they are not needed.
-
 ### Done 26 Sep 2026
 
 - karibucongo.com sitemap: now lists all 28 indexable pages (`/privacy/` is `noindex`, the Bali post's canonical is samori.net). Submitted to Search Console and Bing.
@@ -118,3 +114,4 @@ After deploying, commit the site changes and the updated `last-sync.sha256`, so 
 - karibucongo.com brought into git (`karibucongo/site/`, `deploy-karibucongo.sh`).
 - samori.io: contact form replaced with a "Send by email" link that opens the visitor's email app, and the page title, description and canonical are set.
 - karibucongo.com: 15 oversized photos (up to 8 MB) resized to at most 1920 px, same names and formats, 40.8 MB down to 6.7 MB.
+- karibucongo.com: the four public `*.zip` image bundles under `destinations/` (28 MB, not linked from any page) deleted on the server; they now return 404.
