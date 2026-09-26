@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paris Travel Guide — Icons, Neighborhoods & Day Trips | Karibu Congo</title>
+<meta name="description" content="Everything you need to plan a Paris trip — where to stay, what to see, day trips to Versailles, and a simple route to follow.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+        colors: { teal: { 300:'#5eead4',400:'#2dd4bf',600:'#0d9488' } }
+      }
+    }
+  }
+</script>
+<style>body{font-family:'Inter',system-ui,sans-serif;}</style>
+<script src="/hotel-search.js?v=2" defer></script></head>
+<body class="bg-white text-zinc-900 antialiased dark:bg-black dark:text-zinc-50">
+
+<!-- Header -->
+<header class="sticky top-0 z-50 border-b border-black/5 bg-white/80 backdrop-blur-md dark:border-white/10 dark:bg-black/80">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <a class="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50" href="/">Karibu <span class="text-teal-600 dark:text-teal-400">Congo</span></a>
+    <nav class="hidden items-center gap-8 text-sm font-medium text-zinc-600 dark:text-zinc-300 sm:flex">
+      <a class="hover:text-zinc-900 dark:hover:text-zinc-50" href="/flights/">Flights</a>
+      <a class="hover:text-zinc-900 dark:hover:text-zinc-50" href="/hotels/">Hotels</a>
+      <a class="hover:text-zinc-900 dark:hover:text-zinc-50" href="/car-rental/">Car Rental</a>
+      <a class="hover:text-zinc-900 dark:hover:text-zinc-50" href="/things-to-do/">Things to Do</a>
+      <a class="hover:text-zinc-900 dark:hover:text-zinc-50" href="/esim/">eSIM</a>
+      <a class="text-teal-600 dark:text-teal-400" href="/destinations/">Destinations</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="relative h-[420px] w-full sm:h-[560px]">
+      <img src="images/eiffel-tower-trocadero.jpg" alt="The Eiffel Tower lit up at dusk, seen across the Trocadéro fountains" class="absolute inset-0 h-full w-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/60"></div>
+      <div class="absolute inset-x-6 bottom-8 sm:inset-x-16">
+        <p class="text-sm font-semibold uppercase tracking-[0.2em] text-teal-300">Destination Guide</p>
+        <h1 class="mt-2 max-w-2xl text-4xl font-extrabold tracking-tight text-white sm:text-6xl">Paris</h1>
+        <p class="mt-3 max-w-xl text-base text-zinc-100 sm:text-lg">A two-hour lunch, a world-class museum, and a floodlit iron tower — all before dinner, all within walking distance of each other.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stat cards -->
+  <section class="relative z-10 mx-auto -mt-12 grid max-w-6xl grid-cols-2 gap-4 px-6 sm:grid-cols-4">
+    <div class="rounded-2xl border border-black/5 bg-white p-5 dark:border-white/10 dark:bg-zinc-900">
+      <p class="text-xs font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">Best Time to Go</p>
+      <p class="mt-1 text-lg font-bold text-zinc-900 dark:text-zinc-50">Apr–Jun &amp; Sep–Oct</p>
+    </div>
+    <div class="rounded-2xl border border-black/5 bg-white p-5 dark:border-white/10 dark:bg-zinc-900">
+      <p class="text-xs font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">Fly Into</p>
+      <p class="mt-1 text-lg font-bold text-zinc-900 dark:text-zinc-50">Paris–CDG or Orly (ORY)</p>
+    </div>
+    <div class="rounded-2xl border border-black/5 bg-white p-5 dark:border-white/10 dark:bg-zinc-900">
+      <p class="text-xs font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">Currency</p>
+      <p class="mt-1 text-lg font-bold text-zinc-900 dark:text-zinc-50">Euro (EUR)</p>
+    </div>
+    <div class="rounded-2xl border border-black/5 bg-white p-5 dark:border-white/10 dark:bg-zinc-900">
+      <p class="text-xs font-semibold uppercase tracking-wide text-zinc-500 dark:text-zinc-400">Suggested Stay</p>
+      <p class="mt-1 text-lg font-bold text-zinc-900 dark:text-zinc-50">4–6 days</p>
+    </div>
+  </section>
+
+  <!-- Plan This Trip -->
+  <section class="mx-auto max-w-6xl px-6 py-6">
+    <h2 class="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-3xl">Plan This Trip</h2>
+    <p class="mt-2 text-zinc-600 dark:text-zinc-400">Search flights and hotels for Paris right here — no extra tabs.</p>
+
+    <div class="mt-6 rounded-3xl border border-black/5 p-2 dark:border-white/10">
+      <div class="rounded-2xl bg-white p-6 dark:bg-zinc-900">
+        <div class="tp-widget-container">
+          <tp-cascoon id="tp-cascoon-component-paris-avia" data-cascoon-id="7879_0"></tp-cascoon><script async src="https://tpembd.com/content?currency=usd&trs=551717&shmarker=746332&show_hotels=true&powered_by=true&locale=en&searchUrl=www.aviasales.com%2Fsearch&primary_override=%2332a8dd&color_button=%2332a8dd&color_icons=%2332a8dd&dark=%23262626&light=%23FFFFFF&secondary=%23FFFFFF&special=%23C4C4C4&color_focused=%2332a8dd&border_radius=0&plain=false&promo_id=7879&campaign_id=100" charset="utf-8"></script>
+        </div>
+      </div>
+    </div>
+
+    <p class="mt-8 text-center text-sm font-semibold uppercase tracking-wide text-zinc-400 dark:text-zinc-500">Or search with Kiwi.com</p>
+    <div class="mt-3 rounded-3xl border border-black/5 p-2 dark:border-white/10">
+      <div class="rounded-2xl bg-white p-6 dark:bg-zinc-900">
+        <div class="tp-widget-container">
+          <tp-cascoon id="tp-cascoon-component-paris-kiwi" data-cascoon-id="3414_0"></tp-cascoon><script async src="https://tpembd.com/content?currency=usd&trs=551717&shmarker=746332&locale=en&stops=any&show_hotels=true&powered_by=true&border_radius=0&plain=true&color_button=%2332a8dd&color_button_text=%23ffffff&promo_id=3414&campaign_id=111" charset="utf-8"></script>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why go -->
+  <section class="mx-auto max-w-6xl px-6 py-6">
+    <div class="max-w-3xl">
+      <h2 class="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-3xl">Why go</h2>
+      <p class="mt-3 text-zinc-600 dark:text-zinc-400 leading-relaxed">Most first trips fall into a rhythm without much effort: mornings at a landmark, afternoons drifting between neighborhoods, evenings that run long over dinner. The big three — the Eiffel Tower, the Louvre, Notre-Dame — earn the hype, but Paris rewards slowing down just as much: a bakery you return to twice, a bench in the Luxembourg Gardens, a bridge you cross for no reason other than the view. The city is compact and the Métro is fast, so you spend your time seeing things, not getting to them. Four days gives you the icons; six lets you add Versailles and actually sit down for lunch.</p>
+    </div>
+  </section>
+
+  <!-- Where to Stay -->
+  <section class="mx-auto max-w-6xl px-6 py-6">
+    <h2 class="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-3xl">Where to Stay</h2>
+    <p class="mt-2 max-w-2xl text-zinc-600 dark:text-zinc-400">Where you sleep sets the tone — palace-hotel glamour near the Champs-Élysées, quiet elegance by the Louvre, or a modern base in the business district with an easy ride into the centre.</p>
+
+    <div class="mt-6 grid gap-6 sm:grid-cols-2">
+      <div class="overflow-hidden rounded-2xl border border-black/5 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+        <img src="images/hotel-royal-monceau.jpg" alt="The entrance of Le Royal Monceau Raffles Paris, near the Arc de Triomphe" class="h-56 w-full object-cover">
+        <div class="p-6">
+          <h3 class="font-bold text-zinc-900 dark:text-zinc-50">Le Royal Monceau Raffles Paris</h3>
+          <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">A palace hotel two minutes' walk from the Arc de Triomphe — Philippe Starck interiors, a private cinema, and one of the city's best hotel spas.</p>
+        </div>
+      </div>
+      <div class="overflow-hidden rounded-2xl border border-black/5 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+        <img src="images/hotel-pullman-tour-eiffel.jpg" alt="Pullman Paris Tour Eiffel hotel with the Eiffel Tower visible behind it" class="h-56 w-full object-cover">
+        <div class="p-6">
+          <h3 class="font-bold text-zinc-900 dark:text-zinc-50">Pullman Paris Tour Eiffel</h3>
+          <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">Wake up across the street from the Eiffel Tower. Book a high floor on the tower side and you won't need to leave your room for the view.</p>
+        </div>
+      </div>
+      <div class="overflow-hidden rounded-2xl border border-black/5 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+        <img src="images/hotel-grand-palais-royal.webp" alt="A refined guest room at the Grand Hôtel du Palais Royal" class="h-56 w-full object-cover">
+        <div class="p-6">
+          <h3 class="font-bold text-zinc-900 dark:text-zinc-50">Grand Hôtel du Palais Royal</h3>
+          <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">Quiet, boutique, and steps from the Louvre and the arcaded gardens of the Palais-Royal — a good base for museum-heavy days.</p>
+        </div>
+      </div>
+      <div class="overflow-hidden rounded-2xl border border-black/5 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+        <img src="images/hotel-hilton-la-defense.jpeg" alt="The Hilton Paris La Défense, next to the CNIT glass building" class="h-56 w-full object-cover">
+        <div class="p-6">
+          <h3 class="font-bold text-zinc-900 dark:text-zinc-50">Hilton Paris La Défense</h3>
+          <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">A modern, better-value base in the business district — direct RER A into the centre in about 15 minutes, with the CNIT complex right next door.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Icons & Neighborhoods -->
+  <section class="mx-auto max-w-6xl px-6 py-6">
+    <h2 class="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-3xl">Icons &amp; Neighborhoods</h2>
+    <p class="mt-2 max-w-2xl text-zinc-600 dark:text-zinc-400">Paris's landmarks are spread across a handful of walkable districts — pick a cluster a day rather than criss-crossing the city.</p>
+
+    <div class="mt-6 grid gap-6 sm:grid-cols-3">
+      <div class="overflow-hidden rounded-2xl border border-black/5 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+        <img src="images/arc-de-triomphe.jpg" alt="The Arc de Triomphe at sunset" class="h-48 w-full object-cover">
+        <div class="p-5">
+          <h3 class="font-bold text-zinc-900 dark:text-zinc-50">Arc de Triomphe</h3>
+          <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">Climb it for a rooftop view straight down the Champs-Élysées, or just admire it from the traffic circle below.</p>
+        </div>
+      </div>
+      <div class="overflow-hidden rounded-2xl border border-black/5 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+        <img src="images/louvre-pyramid.jpeg" alt="The glass pyramid at the Louvre Museum" class="h-48 w-full object-cover">
+        <div class="p-5">
+          <h3 class="font-bold text-zinc-900 dark:text-zinc-50">The Louvre</h3>
+          <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">The world's largest art museum. Book timed entry in advance and pick two or three wings rather than trying to see it all.</p>
+        </div>
+      </div>
+      <div class="overflow-hidden rounded-2xl border border-black/5 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+        <img src="images/notre-dame-interior.jpg" alt="The nave of Notre-Dame Cathedral, reopened after restoration" class="h-48 w-full object-cover">
+        <div class="p-5">
+          <h3 class="font-bold text-zinc-900 dark:text-zinc-50">Notre-Dame</h3>
+          <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">Reopened after its post-fire restoration, and looking better than ever inside. Free entry, but book a slot ahead in high season.</p>
+        </div>
+      </div>
+      <div class="overflow-hidden rounded-2xl border border-black/5 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+        <img src="images/sacre-coeur-montmartre.jpg" alt="The Sacré-Cœur Basilica on the hill of Montmartre" class="h-48 w-full object-cover">
+        <div class="p-5">
+          <h3 class="font-bold text-zinc-900 dark:text-zinc-50">Montmartre &amp; Sacré-Cœur</h3>
+          <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">The city's highest hill — cobbled streets, artists' squares, and a basilica with a view over every rooftop in Paris.</p>
+        </div>
+      </div>
+      <div class="overflow-hidden rounded-2xl border border-black/5 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+        <img src="images/musee-dorsay.jpg" alt="The Musée d'Orsay building on the banks of the Seine" class="h-48 w-full object-cover">
+        <div class="p-5">
+          <h3 class="font-bold text-zinc-900 dark:text-zinc-50">Musée d'Orsay</h3>
+          <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">A former railway station turned Impressionist museum — Monet, Degas and Van Gogh under a soaring glass roof.</p>
+        </div>
+      </div>
+      <div class="overflow-hidden rounded-2xl border border-black/5 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+        <img src="images/palais-garnier-staircase.webp" alt="The grand marble staircase inside the Palais Garnier opera house" class="h-48 w-full object-cover">
+        <div class="p-5">
+          <h3 class="font-bold text-zinc-900 dark:text-zinc-50">Palais Garnier</h3>
+          <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">You don't need a ticket to a performance — day tours take you through the gilded auditorium and the marble grand staircase.</p>
+        </div>
+      </div>
+      <div class="overflow-hidden rounded-2xl border border-black/5 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+        <img src="images/jardin-du-luxembourg.webp" alt="A tree-lined avenue in the Jardin du Luxembourg" class="h-48 w-full object-cover">
+        <div class="p-5">
+          <h3 class="font-bold text-zinc-900 dark:text-zinc-50">Jardin du Luxembourg</h3>
+          <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">The Left Bank's favourite park — sit by the fountain, rent a toy sailboat, or just find shade on a warm afternoon.</p>
+        </div>
+      </div>
+      <div class="overflow-hidden rounded-2xl border border-black/5 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+        <img src="images/le-marais-place-des-vosges.jpg" alt="A tree-lined street in Le Marais near Place des Vosges" class="h-48 w-full object-cover">
+        <div class="p-5">
+          <h3 class="font-bold text-zinc-900 dark:text-zinc-50">Le Marais</h3>
+          <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">Narrow medieval streets, concept stores, falafel on Rue des Rosiers, and the arcaded elegance of Place des Vosges.</p>
+        </div>
+      </div>
+      <div class="overflow-hidden rounded-2xl border border-black/5 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+        <img src="images/galeries-lafayette.jpeg" alt="The illuminated facade of Galeries Lafayette department store" class="h-48 w-full object-cover">
+        <div class="p-5">
+          <h3 class="font-bold text-zinc-900 dark:text-zinc-50">Galeries Lafayette</h3>
+          <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">A department store worth visiting for the building alone — take the lift straight to the free rooftop terrace.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-6 rounded-2xl border border-black/5 bg-zinc-50 p-6 dark:border-white/10 dark:bg-zinc-900">
+      <img src="images/palais-elysee.jpg" alt="The Élysée Palace, official residence of the President of France" class="mb-4 h-40 w-full rounded-xl object-cover">
+      <p class="text-sm text-zinc-600 dark:text-zinc-400">The <span class="font-semibold text-zinc-900 dark:text-zinc-50">Élysée Palace</span>, the official residence of the President of France, isn't open to casual visitors — but the gates on Rue du Faubourg Saint-Honoré are worth a look on your way to the shops nearby.</p>
+    </div>
+  </section>
+
+  <!-- Food & Dining -->
+  <section class="mx-auto max-w-6xl px-6 py-6">
+    <h2 class="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-3xl">Food &amp; Dining</h2>
+    <p class="mt-2 max-w-2xl text-zinc-600 dark:text-zinc-400">From rooftop tables with a floodlit tower view to an unfussy neighborhood bistro — book ahead for anything with a view.</p>
+
+    <div class="mt-6 grid gap-6 sm:grid-cols-3">
+      <div class="overflow-hidden rounded-2xl border border-black/5 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+        <img src="images/loiseau-blanc-restaurant.jpg" alt="L'Oiseau Blanc rooftop restaurant with a floodlit Eiffel Tower in the background" class="h-48 w-full object-cover">
+        <div class="p-5">
+          <h3 class="font-bold text-zinc-900 dark:text-zinc-50">L'Oiseau Blanc</h3>
+          <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">A glass-roofed rooftop restaurant with what might be the single best Eiffel Tower view in the city. Book the tower-facing tables well ahead.</p>
+        </div>
+      </div>
+      <div class="overflow-hidden rounded-2xl border border-black/5 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+        <img src="images/la-tour-dargent-restaurant.jpg" alt="La Tour d'Argent restaurant dining room overlooking the Seine and Notre-Dame" class="h-48 w-full object-cover">
+        <div class="p-5">
+          <h3 class="font-bold text-zinc-900 dark:text-zinc-50">La Tour d'Argent</h3>
+          <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">A Paris institution since the 16th century, with a dining room looking straight across the Seine to Notre-Dame.</p>
+        </div>
+      </div>
+      <div class="overflow-hidden rounded-2xl border border-black/5 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+        <img src="images/francette-bistro.jpg" alt="A shared table of bistro dishes at Francette" class="h-48 w-full object-cover">
+        <div class="p-5">
+          <h3 class="font-bold text-zinc-900 dark:text-zinc-50">Francette</h3>
+          <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">A relaxed, no-reservation-needed bistro for the nights you just want good wine and a proper plate of food.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Day Trips -->
+  <section class="mx-auto max-w-6xl px-6 py-6">
+    <h2 class="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-3xl">Beyond the City: Day Trips</h2>
+    <p class="mt-2 max-w-2xl text-zinc-600 dark:text-zinc-400">If you have an extra day or two, everything below is under an hour from central Paris by train.</p>
+
+    <div class="mt-6 grid gap-6 sm:grid-cols-2">
+      <div class="overflow-hidden rounded-2xl border border-black/5 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+        <img src="images/chateau-de-versailles.webp" alt="The facade of the Château de Versailles" class="h-56 w-full object-cover">
+        <div class="p-6">
+          <h3 class="font-bold text-zinc-900 dark:text-zinc-50">Château de Versailles</h3>
+          <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">The Hall of Mirrors and the palace gardens are a full day on their own. About 40 minutes from central Paris on the RER C.</p>
+        </div>
+      </div>
+      <div class="overflow-hidden rounded-2xl border border-black/5 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+        <img src="images/basilique-saint-denis.jpg" alt="The Basilica of Saint-Denis, burial place of the French monarchy" class="h-56 w-full object-cover">
+        <div class="p-6">
+          <h3 class="font-bold text-zinc-900 dark:text-zinc-50">Basilique Saint-Denis</h3>
+          <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">The burial site of nearly every French king and queen, and the birthplace of Gothic architecture — a short Métro ride north of the city, far fewer crowds than Notre-Dame.</p>
+        </div>
+      </div>
+      <div class="overflow-hidden rounded-2xl border border-black/5 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+        <img src="images/disneyland-paris.jpg" alt="Disneyland Paris" class="h-56 w-full object-cover">
+        <div class="p-6">
+          <h3 class="font-bold text-zinc-900 dark:text-zinc-50">Disneyland Paris</h3>
+          <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">Two parks and its own train station, about 40 minutes from the centre on the RER A — an easy full-day trip with kids.</p>
+        </div>
+      </div>
+      <div class="overflow-hidden rounded-2xl border border-black/5 shadow-sm dark:border-white/10 dark:bg-zinc-900">
+        <img src="images/parc-asterix.jpg" alt="A roller coaster at Parc Astérix" class="h-56 w-full object-cover">
+        <div class="p-6">
+          <h3 class="font-bold text-zinc-900 dark:text-zinc-50">Parc Astérix</h3>
+          <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">A France-themed alternative to Disney, built around the Astérix comics, with some of Europe's best roller coasters.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Getting There -->
+  <section class="mx-auto max-w-6xl px-6 py-6">
+    <h2 class="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-3xl">Getting There</h2>
+    <div class="mt-6 grid items-center gap-8 sm:grid-cols-2">
+      <div>
+        <h3 class="font-bold text-zinc-900 dark:text-zinc-50">Air France</h3>
+        <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">France's national carrier flies into Paris–Charles de Gaulle (CDG) from a huge network of cities worldwide, with CDG's Terminal 2E among the most striking in Europe. Budget and short-haul flights are more likely to land at Orly (ORY), closer to the city centre but with fewer long-haul connections.</p>
+      </div>
+      <img src="images/cdg-terminal-interior.jpg" alt="The interior of a CDG airport terminal" class="h-56 w-full rounded-2xl object-cover">
+    </div>
+  </section>
+
+  <!-- Sample Route -->
+  <section class="mx-auto max-w-6xl px-6 py-6">
+    <h2 class="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-3xl">A Simple 5-Day Route</h2>
+    <div class="mt-6 space-y-6">
+      <div class="flex flex-col gap-2 border-l-2 border-teal-600 pl-6 sm:flex-row sm:items-baseline sm:gap-6">
+        <p class="w-32 shrink-0 text-xs font-bold uppercase tracking-wide text-teal-600 dark:text-teal-400">Days 1–2</p>
+        <div><p class="font-bold text-zinc-900 dark:text-zinc-50">Right Bank &amp; Icons</p><p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">Eiffel Tower, Arc de Triomphe, a walk down the Champs-Élysées, and an evening Seine cruise.</p></div>
+      </div>
+      <div class="flex flex-col gap-2 border-l-2 border-teal-600 pl-6 sm:flex-row sm:items-baseline sm:gap-6">
+        <p class="w-32 shrink-0 text-xs font-bold uppercase tracking-wide text-teal-600 dark:text-teal-400">Day 3</p>
+        <div><p class="font-bold text-zinc-900 dark:text-zinc-50">Louvre &amp; the Marais</p><p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">Morning at the Louvre, lunch near the Palais-Royal, evening wandering Le Marais and Place des Vosges.</p></div>
+      </div>
+      <div class="flex flex-col gap-2 border-l-2 border-teal-600 pl-6 sm:flex-row sm:items-baseline sm:gap-6">
+        <p class="w-32 shrink-0 text-xs font-bold uppercase tracking-wide text-teal-600 dark:text-teal-400">Day 4</p>
+        <div><p class="font-bold text-zinc-900 dark:text-zinc-50">Montmartre &amp; the Left Bank</p><p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">Sacré-Cœur and the artists' squares in the morning, Musée d'Orsay and the Jardin du Luxembourg in the afternoon.</p></div>
+      </div>
+      <div class="flex flex-col gap-2 border-l-2 border-teal-600 pl-6 sm:flex-row sm:items-baseline sm:gap-6">
+        <p class="w-32 shrink-0 text-xs font-bold uppercase tracking-wide text-teal-600 dark:text-teal-400">Day 5</p>
+        <div><p class="font-bold text-zinc-900 dark:text-zinc-50">Versailles</p><p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">A full day trip to the palace and gardens, back in the city in time for dinner.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Good to Know -->
+  <section class="mx-auto max-w-6xl px-6 py-6">
+    <h2 class="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-3xl">Good to Know</h2>
+    <div class="mt-6 grid gap-8 sm:grid-cols-3">
+      <div>
+        <h3 class="font-bold text-zinc-900 dark:text-zinc-50">Getting around</h3>
+        <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">The Métro covers the whole city and trains run every few minutes. A carnet of tickets or a Navigo Easy card will get you almost everywhere faster than a taxi.</p>
+      </div>
+      <div>
+        <h3 class="font-bold text-zinc-900 dark:text-zinc-50">Entry requirements</h3>
+        <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">France is part of the Schengen Area. Many visitors can enter visa-free for short stays — check current requirements for your nationality before you book.</p>
+      </div>
+      <div>
+        <h3 class="font-bold text-zinc-900 dark:text-zinc-50">Packing</h3>
+        <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">Comfortable walking shoes, a light layer for cool evenings even in summer, and something smart-casual for dinner — Parisians dress a notch up.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing CTA -->
+  <section class="mx-auto px-6 py-12">
+    <div class="relative mx-auto max-w-6xl overflow-hidden rounded-3xl">
+      <img src="images/seine-pont-alexandre-iii.jpg" alt="The Eiffel Tower and the Seine at night" class="h-72 w-full object-cover">
+      <div class="absolute inset-0 bg-black/50"></div>
+      <div class="absolute inset-0 flex flex-col items-start justify-center gap-4 px-8 sm:px-12">
+        <h2 class="max-w-md text-2xl font-extrabold text-white sm:text-3xl">Start Planning Your Paris Trip</h2>
+        <p class="max-w-md text-sm text-zinc-100">Compare flights to Paris, and browse hotels near the icons, in one place.</p>
+        <div class="mt-2 flex flex-wrap gap-3">
+          <a href="/flights/" class="rounded-xl bg-teal-600 px-6 py-3 text-sm font-semibold text-white hover:bg-teal-700">Search Flights</a>
+          <a href="/hotels/" class="rounded-xl bg-white px-6 py-3 text-sm font-semibold text-zinc-900 hover:bg-zinc-100">Search Hotels</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="border-t border-black/5 dark:border-white/10">
+  <div class="mx-auto max-w-6xl px-6 py-12">
+    <div class="grid grid-cols-1 gap-10 sm:grid-cols-[2fr_1fr_1fr]">
+      <div>
+        <a class="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50" href="/">Karibu <span class="text-teal-600 dark:text-teal-400">Congo</span></a>
+        <p class="mt-3 max-w-sm text-sm text-zinc-500 dark:text-zinc-400">We compare flights, cars, activities and eSIMs across dozens of providers so you can spend less time booking and more time exploring.</p>
+      </div>
+      <div>
+        <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-50">Quick Links</h3>
+        <nav class="mt-4 flex flex-col gap-2 text-sm text-zinc-500 dark:text-zinc-400">
+          <a class="hover:text-zinc-900 dark:hover:text-zinc-50" href="/flights/">Flights</a>
+          <a class="hover:text-zinc-900 dark:hover:text-zinc-50" href="/hotels/">Hotels</a>
+          <a class="hover:text-zinc-900 dark:hover:text-zinc-50" href="/car-rental/">Car Rental</a>
+          <a class="hover:text-zinc-900 dark:hover:text-zinc-50" href="/things-to-do/">Things to Do</a>
+          <a class="hover:text-zinc-900 dark:hover:text-zinc-50" href="/esim/">Stay Connected</a>
+        </nav>
+      </div>
+      <div>
+        <h3 class="text-sm font-semibold text-zinc-900 dark:text-zinc-50">Explore</h3>
+        <nav class="mt-4 flex flex-col gap-2 text-sm text-zinc-500 dark:text-zinc-400">
+          <a class="hover:text-zinc-900 dark:hover:text-zinc-50" href="/destinations/">Destinations</a>
+          <a class="hover:text-zinc-900 dark:hover:text-zinc-50" href="/destinations/kinshasa/">Kinshasa</a>
+          <a class="text-teal-600 dark:text-teal-400" href="/destinations/paris/">Paris</a>
+        </nav>
+      </div>
+    </div>
+    <div class="mt-10 border-t border-black/5 pt-6 text-center text-xs text-zinc-400 dark:border-white/10 dark:text-zinc-500">Karibu Congo — your world, your way.</div>
+  </div>
+</footer>
+
+</body>
+</html>
