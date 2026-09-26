@@ -77,7 +77,7 @@
     return b;
   }
   function showBanner() {
-    if (banner) { banner.querySelector('button').focus(); return; }
+    if (banner && banner.isConnected) { banner.querySelector('button').focus(); return; }
     banner = document.createElement('div');
     banner.setAttribute('role', 'region');
     banner.setAttribute('aria-label', 'Cookie consent');
@@ -103,6 +103,16 @@
     banner.appendChild(p);
     banner.appendChild(row);
     document.body.appendChild(banner);
+    /* Next.js hydration can remove nodes added to <body> before it finishes.
+       Put the banner back until the visitor makes a choice. */
+    if (window.MutationObserver) {
+      var keep = new MutationObserver(function () {
+        if (!banner) { keep.disconnect(); return; }
+        if (!banner.isConnected && read() === null) document.body.appendChild(banner);
+      });
+      keep.observe(document.documentElement, { childList: true, subtree: true });
+      setTimeout(function () { keep.disconnect(); }, 15000);
+    }
   }
   function hideBanner() {
     if (banner && banner.parentNode) banner.parentNode.removeChild(banner);
