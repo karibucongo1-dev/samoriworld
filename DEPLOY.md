@@ -69,5 +69,4 @@ Merge the branch into `main` and push, so `main` always matches the live site. K
 ## Known issues (26 Sep 2026)
 
 - Hotel and car-rental search boxes (`src/components/SearchForm.tsx`) don't submit anywhere. This predates the repo build.
-- `/privacy/` is not in the sitemap.
 - 2 Oct 2026: raise HSTS to `max-age=31536000` and switch the CSP from report-only to enforced on samori.net, samori.co.uk and samori.io, after checking browser consoles for CSP violations. For samori.net change `public/.htaccess` and deploy.

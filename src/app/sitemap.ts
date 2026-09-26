@@ -6,7 +6,7 @@ import { absoluteUrl, SITE_ID } from '@/lib/site-config';
 
 export const dynamic = 'force-static';
 
-const nextRoutes = ['/', '/flights/', '/hotels/', '/car-rental/', '/esim/', '/destinations/', '/blog/bali-budget-guide/'];
+const nextRoutes = ['/', '/flights/', '/hotels/', '/car-rental/', '/esim/', '/destinations/', '/blog/bali-budget-guide/', '/privacy/'];
 
 function handMadeRoutes(): string[] {
   const root = path.join(process.cwd(), 'public');
