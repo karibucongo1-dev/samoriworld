@@ -6,3 +6,5 @@ out/
 !.env.example
 incoming/
 *.tsbuildinfo
+out-*/
+out-*.zip
