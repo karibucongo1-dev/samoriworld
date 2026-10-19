@@ -25,8 +25,7 @@ export default function HomePage() {
           email: 'info@samori.net',
         }}
       />
-      {/* samori-hero.css and /images/samori-hero-a380.jpg live only on the server (public_html);
-          they are not in git. Pull them into public/ before building a local preview. */}
+      {/* samori-hero.css and /images/samori-hero-a380.jpg are static files in public/. */}
       <link rel="stylesheet" href="/samori-hero.css" precedence="default" />
       <section className="samori-hero">
         <div className="samori-hero__stage">

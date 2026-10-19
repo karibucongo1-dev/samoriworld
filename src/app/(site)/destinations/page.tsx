@@ -130,6 +130,33 @@ export default function DestinationsPage() {
               <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">Football rivalries, free museums, and the sound that never left Madchester</p>
             </div>
           </a>
+          <a className="group overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md dark:border-white/10 dark:bg-zinc-900" href="/destinations/brazzaville/">
+            <div className="h-32 overflow-hidden">
+              <img src="/destinations/brazzaville/images/brazzaville-basilique-sainte-anne.jpg" alt="Basilique Sainte-Anne-du-Congo, Brazzaville" className="h-full w-full object-cover" />
+            </div>
+            <div className="p-4">
+              <h2 className="font-semibold text-zinc-900 dark:text-zinc-50">Brazzaville</h2>
+              <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">Riverside terraces, a green-roofed basilica, and Kinshasa shimmering across the water</p>
+            </div>
+          </a>
+          <a className="group overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md dark:border-white/10 dark:bg-zinc-900" href="/destinations/istanbul/">
+            <div className="h-32 overflow-hidden">
+              <img src="/destinations/istanbul/images/hagia-sophia.jpg" alt="Hagia Sophia and the Istanbul skyline" className="h-full w-full object-cover" />
+            </div>
+            <div className="p-4">
+              <h2 className="font-semibold text-zinc-900 dark:text-zinc-50">Istanbul</h2>
+              <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">Domes, bazaars, and ferries between two continents</p>
+            </div>
+          </a>
+          <a className="group overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md dark:border-white/10 dark:bg-zinc-900" href="/destinations/rome/">
+            <div className="h-32 overflow-hidden">
+              <img src="/destinations/rome/images/colosseum-rome.jpg" alt="The Colosseum in Rome" className="h-full w-full object-cover" />
+            </div>
+            <div className="p-4">
+              <h2 className="font-semibold text-zinc-900 dark:text-zinc-50">Rome</h2>
+              <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">Ancient ruins, Baroque fountains, and a plate of cacio e pepe on every corner</p>
+            </div>
+          </a>
         </div>
       </section>
     </>

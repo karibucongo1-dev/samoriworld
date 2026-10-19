@@ -61,7 +61,10 @@ test('Google Analytics only loads through consent.js', () => {
 });
 
 test('no static page loads Google Analytics inline', () => {
-  for (const page of staticPages()) {
+  // The Stover pages (hand-built, ad landing pages) carry their own consent-gated GA loader plus assets/page-consent.js.
+  // They are kept exactly as they were live; every other static page must use consent.js.
+  const ownLoader = /\/public\/stover(-women)?\/index\.html$/;
+  for (const page of staticPages().filter((p) => !ownLoader.test(p))) {
     const html = fs.readFileSync(page, 'utf8');
     assert.ok(!/<script[^>]*googletagmanager\.com/i.test(html), `${path.relative(root, page)} loads GA directly; it must go through consent.js`);
     assert.ok(!html.includes('G-LKMZFYPFHW'), `${path.relative(root, page)} has an inline GA ID`);

@@ -26,25 +26,22 @@ the A380 hero (`samori-hero` markup), the "Shop" nav link to shop.samori.net, an
 The live inline Google Analytics loader (G-LKMZFYPFHW) is replaced by a `ga` loader inside `consent.js`, so GA
 follows the same Accept/Reject choice as everything else, and its `_ga` cookies are deleted on Reject.
 
-These files exist only on the server and are referenced by the source. Copy them into `public/` (same paths)
-before building or deploying, so git and the server match:
-
-- `public_html/samori-hero.css` -> `public/samori-hero.css`
-- `public_html/images/samori-hero-a380.jpg` -> `public/images/samori-hero-a380.jpg`
-- `public_html/destinations/rome/` -> `public/destinations/rome/`
-- any Stover pages (`public_html/stover*/`) and anything else in `public_html` that is not in git
-
-`deploy.sh` never deletes, so they stay live even if not copied, but a local preview will show broken images.
+Those server-only files are now in git (see "Server scan" below), so a build from this branch matches the live site.
 
 ## Server scan (19 Oct 2026, via cPanel File Manager)
 
-- The GA tag (G-LKMZFYPFHW) was pasted inline into 37 of 38 server HTML pages (all but `about.html`). Git has none of them, and the `consent.js` loader replaces it. After the next deploy the inline copies are overwritten for every page the build or `public/` produces. Pages that exist only on the server (below) still carry it until they are added to git.
+- The GA tag (G-LKMZFYPFHW) was pasted inline into 37 of 38 server HTML pages (all but `about.html`). Git has none of them, and the `consent.js` loader replaces it. After the next deploy the inline copies are overwritten for every page the build or `public/` produces (the Stover pages keep their own consent-gated loader, see below).
 - The "Shop" header link was also added by hand to 26 server pages. The 13 static pages in `public/` now have it (12 destination guides and Things to Do); the React pages get it from `AppHeader.tsx`.
-- Server-only content not in git: `destinations/brazzaville`, `destinations/istanbul`, `destinations/rome`, `stover`, `stover-women`, `samori-hero.css`, `images/samori-hero-a380.jpg`, and about 360 image files (about 108 MB) in the destination folders. Each hand edit left a `*.bak-before-ga` or `*.bak-before-shop-link` copy on the server; do not copy those into git.
+- Brought into git from the server: `destinations/brazzaville`, `destinations/istanbul`, `destinations/rome` (pages plus images), `stover/` and `stover-women/` (pages plus assets, unchanged), `samori-hero.css`, `images/samori-hero-a380.jpg`, and about 340 destination images. Nothing in the repo was overwritten with a server copy.
+- The three new destination pages were cleaned the same way as the others: the inline GA block was removed (GA now comes from `consent.js` via `data-load="ga"`), and the Travelpayouts widget script became a consent-gated `data-consent-src`. The Brazzaville, Istanbul and Rome cards were added to the React `/destinations/` page, which would otherwise have dropped them on deploy.
+- Every static page that has `consent.js` now asks it for GA (`data-load="ga"`), so analytics keeps working on those pages, but only after Accept. `privacy/` has no `consent.js`, so it no longer reports to GA.
+- The Stover pages keep their own consent-gated GA loader and `assets/page-consent.js` exactly as they were live. They use the same `samori_consent_v1` choice. If you want them on the shared banner, that is a separate change.
+- Not copied (too large for the transfer): `destinations/kuala-lumpur/images/central-market-facade.jpg` (5.2 MB), `pavilion-kl-fountain-exterior.jpg` (2.9 MB), `destinations/new-york/images/9-11-memorial-and-museum.jpg` (8.3 MB), `empire-state-building.jpg` (3.7 MB), `grand-central-terminal.jpg` (6.1 MB). They stay live because `deploy.sh` never deletes, but a local build will show broken images for them. `destinations/paris/images/paris-images.zip` (4.8 MB) looks like a leftover upload archive and was left out on purpose.
+- Server housekeeping: the `*.bak-*` copies next to each page were not copied. The temporary `samori-*.zip` files created in the server home folder (`/home/samopsep/`) for this transfer are safe to delete.
 
 ## Not done / needs the owner
 
-- **Live checks.** This session could not reach www.samori.net, so the audit's live findings (/luhxe/ 404, Stover pages, GA loader, headers) were not re-measured. Stover pages are not in this repo: they exist only on the server. Check `public_html` for files not in git before deploying.
+- **Live checks.** This session could not reach www.samori.net, so the audit's live findings (/luhxe/ 404, Stover pages, GA loader, headers) were not re-measured. The Stover pages and the Brazzaville, Istanbul and Rome guides are now in git. The remaining server-only files are the five oversized images listed under "Server scan".
 - **/luhxe/** exists in the repo and stays in the sitemap; the next deploy restores it. Remove the folder if the product is gone.
 - **Tailwind Play CDN** still loads on 11 static pages (`cdn.tailwindcss.com`). Replacing it needs a compiled CSS file per page; not done.
 - **CSP** is unchanged and still report-only. Build an enforced policy only after an inventory of live requests (including any GA tag on the server).
