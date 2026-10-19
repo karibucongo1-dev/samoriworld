@@ -36,6 +36,12 @@ before building or deploying, so git and the server match:
 
 `deploy.sh` never deletes, so they stay live even if not copied, but a local preview will show broken images.
 
+## Server scan (19 Oct 2026, via cPanel File Manager)
+
+- The GA tag (G-LKMZFYPFHW) was pasted inline into 37 of 38 server HTML pages (all but `about.html`). Git has none of them, and the `consent.js` loader replaces it. After the next deploy the inline copies are overwritten for every page the build or `public/` produces. Pages that exist only on the server (below) still carry it until they are added to git.
+- The "Shop" header link was also added by hand to 26 server pages. The 13 static pages in `public/` now have it (12 destination guides and Things to Do); the React pages get it from `AppHeader.tsx`.
+- Server-only content not in git: `destinations/brazzaville`, `destinations/istanbul`, `destinations/rome`, `stover`, `stover-women`, `samori-hero.css`, `images/samori-hero-a380.jpg`, and about 360 image files (about 108 MB) in the destination folders. Each hand edit left a `*.bak-before-ga` or `*.bak-before-shop-link` copy on the server; do not copy those into git.
+
 ## Not done / needs the owner
 
 - **Live checks.** This session could not reach www.samori.net, so the audit's live findings (/luhxe/ 404, Stover pages, GA loader, headers) were not re-measured. Stover pages are not in this repo: they exist only on the server. Check `public_html` for files not in git before deploying.

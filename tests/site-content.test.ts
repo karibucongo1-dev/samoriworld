@@ -59,3 +59,24 @@ test('Google Analytics only loads through consent.js', () => {
   assert.ok(!layout.includes('googletagmanager'));
   assert.match(layout, /'ga'/);
 });
+
+test('no static page loads Google Analytics inline', () => {
+  for (const page of staticPages()) {
+    const html = fs.readFileSync(page, 'utf8');
+    assert.ok(!/<script[^>]*googletagmanager\.com/i.test(html), `${path.relative(root, page)} loads GA directly; it must go through consent.js`);
+    assert.ok(!html.includes('G-LKMZFYPFHW'), `${path.relative(root, page)} has an inline GA ID`);
+  }
+});
+
+test('static pages that had the Shop link on the live site keep it', () => {
+  const pages = [
+    ...['abu-dhabi', 'doha', 'dubai', 'kenya', 'kinshasa', 'kuala-lumpur', 'manchester', 'mauritius', 'new-york', 'paris', 'seychelles', 'singapore'].map(
+      (p) => `public/destinations/${p}/index.html`,
+    ),
+    'public/things-to-do/index.html',
+  ];
+  for (const page of pages) {
+    const html = fs.readFileSync(path.join(root, page), 'utf8');
+    assert.ok(html.includes('href="https://shop.samori.net/">Shop</a></nav>'), `${page} is missing the header Shop link`);
+  }
+});
