@@ -83,3 +83,10 @@ test('static pages that had the Shop link on the live site keep it', () => {
     assert.ok(html.includes('href="https://shop.samori.net/">Shop</a></nav>'), `${page} is missing the header Shop link`);
   }
 });
+
+test('no static page loads Google Analytics itself; consent.js is the only loader', () => {
+  for (const file of staticPages()) {
+    const html = fs.readFileSync(file, 'utf8');
+    assert.ok(!html.includes('googletagmanager.com/gtag'), `${path.relative(root, file)} loads GA outside consent.js`);
+  }
+});

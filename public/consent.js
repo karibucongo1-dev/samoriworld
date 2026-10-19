@@ -41,6 +41,7 @@
       document.head.appendChild(s);
       window.gtag('js', new Date());
       window.gtag('config', GA_ID);
+      window.__gaOn = true;  /* pages send their own events only once GA is on */
     },
     travelpayouts: function () {
       var s = document.createElement('script');

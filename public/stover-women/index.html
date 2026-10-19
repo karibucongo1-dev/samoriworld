@@ -13,37 +13,7 @@
 <meta property="og:image:alt" content="Cream quilted Stover garment duffel bag with matching toiletry bag">
 <meta name="theme-color" content="#5b4fe0">
 
-<!-- GA4 loads only after the visitor accepts cookies via /consent.js (localStorage key samori_consent_v1). -->
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  (function(){
-    var GA_ID = 'G-LKMZFYPFHW', ADS_ID = '', ADS_CONVERSION = '';
-    var loaded = false, tries = 0;
-    function granted(){
-      try {
-        var o = JSON.parse(localStorage.getItem('samori_consent_v1') || 'null');
-        return !!(o && o.v === 'granted' && (Date.now() - o.t) < 365 * 24 * 60 * 60 * 1000);
-      } catch (e) { return false; }
-    }
-    function loadGA(){
-      if (location.protocol === 'file:') return; if (loaded) return; loaded = true;
-      var el = document.createElement('script'); el.async = true;
-      el.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
-      document.head.appendChild(el);
-      gtag('js', new Date());
-      gtag('config', GA_ID);
-      if (ADS_ID) { gtag('config', ADS_ID); }
-      window.__gaOn = true;
-    }
-    function check(){
-      if (granted()) { loadGA(); return; }
-      if (++tries > 1800) return;
-      setTimeout(check, 1000);
-    }
-    check();
-  })();
-</script>
+<!-- Google Analytics loads from /consent.js only after the visitor accepts (data-load="ga" below). -->
 
 <style>
 :root{
@@ -452,7 +422,7 @@ footer a{color:inherit}
   });
 })();
 </script>
-<script src="assets/page-consent.js?v=2" defer></script>
+<script src="/consent.js" data-load="ga" defer></script>
 
 
 <script src="assets/size-check.js" defer></script><script>
