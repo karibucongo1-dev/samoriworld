@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
+import ConsentLoader from '@/components/ConsentLoader';
 import { SITE_NAME, SITE_URL } from '@/lib/site-config';
 import './globals.css';
 
@@ -17,6 +18,9 @@ export const metadata: Metadata = {
   twitter: { card: 'summary_large_image' },
 };
 
+// Optional scripts every Next.js page asks for; consent.js loads them only after "Accept".
+const consentProviders = ['ga', 'metricool', 'travelpayouts'];
+
 export default function RootLayout({
   children,
 }: {
@@ -26,6 +30,7 @@ export default function RootLayout({
     <html lang="en" className="h-full antialiased">
       <body className="h-full bg-white dark:bg-black">
         {children}
+        <ConsentLoader providers={consentProviders} />
         <Script src="/consent.js" strategy="afterInteractive" />
       </body>
     </html>

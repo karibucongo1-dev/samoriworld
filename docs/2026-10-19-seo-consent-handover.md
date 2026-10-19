@@ -19,9 +19,26 @@ Not deployed. Deploy with `./deploy.sh` (see DEPLOY.md) after review.
 | Links | Dubai, Doha, Kenya and London guides link to their "where to stay" guide. Lazy-loaded the Dubai card image on the home page. |
 | Tests | `tests/site-content.test.ts`: no pre-consent widget scripts in static pages, sitemap rules, no newsletter, no `#` socials, redirect scoping. |
 
+## Live site was ahead of git (found from the saved live homepage)
+
+The live home page had changes that were never committed. They are now ported into the source:
+the A380 hero (`samori-hero` markup), the "Shop" nav link to shop.samori.net, and the Doha/Rome card photos.
+The live inline Google Analytics loader (G-LKMZFYPFHW) is replaced by a `ga` loader inside `consent.js`, so GA
+follows the same Accept/Reject choice as everything else, and its `_ga` cookies are deleted on Reject.
+
+These files exist only on the server and are referenced by the source. Copy them into `public/` (same paths)
+before building or deploying, so git and the server match:
+
+- `public_html/samori-hero.css` -> `public/samori-hero.css`
+- `public_html/images/samori-hero-a380.jpg` -> `public/images/samori-hero-a380.jpg`
+- `public_html/destinations/rome/` -> `public/destinations/rome/`
+- any Stover pages (`public_html/stover*/`) and anything else in `public_html` that is not in git
+
+`deploy.sh` never deletes, so they stay live even if not copied, but a local preview will show broken images.
+
 ## Not done / needs the owner
 
-- **Live checks.** This session could not reach www.samori.net, so the audit's live findings (/luhxe/ 404, Stover pages, GA loader, headers) were not re-measured. Stover pages and a GA loader are not in this repo: they exist only on the server. Check `public_html` for files not in git before deploying.
+- **Live checks.** This session could not reach www.samori.net, so the audit's live findings (/luhxe/ 404, Stover pages, GA loader, headers) were not re-measured. Stover pages are not in this repo: they exist only on the server. Check `public_html` for files not in git before deploying.
 - **/luhxe/** exists in the repo and stays in the sitemap; the next deploy restores it. Remove the folder if the product is gone.
 - **Tailwind Play CDN** still loads on 11 static pages (`cdn.tailwindcss.com`). Replacing it needs a compiled CSS file per page; not done.
 - **CSP** is unchanged and still report-only. Build an enforced policy only after an inventory of live requests (including any GA tag on the server).

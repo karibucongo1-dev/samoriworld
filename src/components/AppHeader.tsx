@@ -11,6 +11,7 @@ const navLinks = [
   { label: 'Things to Do', href: '/things-to-do/' },
   { label: 'eSIM', href: '/esim/' },
   { label: 'Destinations', href: '/destinations/' },
+  { label: 'Shop', href: 'https://shop.samori.net/' },
 ];
 
 export default function AppHeader() {

@@ -50,3 +50,12 @@ test('canonical-host redirects only match samori.net hostnames', () => {
   for (const cond of hostConds) assert.match(cond, /samori\\\.net\$/);
   for (const rule of htaccess.match(/RewriteRule \^ \S+/g) ?? []) assert.match(rule, /https:\/\/www\.samori\.net%/);
 });
+
+test('Google Analytics only loads through consent.js', () => {
+  const consent = fs.readFileSync(path.join(root, 'public/consent.js'), 'utf8');
+  assert.match(consent, /ga: function/);
+  assert.match(consent, /clearGaCookies/);
+  const layout = fs.readFileSync(path.join(root, 'src/app/layout.tsx'), 'utf8');
+  assert.ok(!layout.includes('googletagmanager'));
+  assert.match(layout, /'ga'/);
+});

@@ -19,6 +19,7 @@
   /* Metricool hash for the main site; a page can override it with data-metricool-hash. */
   var METRICOOL_HASH = (me && me.getAttribute('data-metricool-hash')) || '80ef38afb3ce1d8cbe475d061ec93daa';
   var TRAVELPAYOUTS_SRC = 'https://emrld.ltd/NTUxMTY5.js?t=551169';
+  var GA_ID = 'G-LKMZFYPFHW';
 
   var loaders = {
     metricool: function () {
@@ -29,6 +30,17 @@
         if (typeof beTracker !== 'undefined') { beTracker.t({ hash: METRICOOL_HASH }); }
       };
       document.head.appendChild(s);
+    },
+    ga: function () {
+      window['ga-disable-' + GA_ID] = false;
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+      var s = document.createElement('script');
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+      s.async = true;
+      document.head.appendChild(s);
+      window.gtag('js', new Date());
+      window.gtag('config', GA_ID);
     },
     travelpayouts: function () {
       var s = document.createElement('script');
@@ -52,6 +64,18 @@
   }
   function write(v) {
     try { localStorage.setItem(KEY, JSON.stringify({ v: v, t: Date.now() })); } catch (e) {}
+  }
+  /* Google Analytics cookies are first-party, so they can be removed on withdrawal. */
+  function clearGaCookies() {
+    window['ga-disable-' + GA_ID] = true;
+    var host = location.hostname.replace(/^www\./, '');
+    document.cookie.split(';').forEach(function (c) {
+      var name = c.split('=')[0].trim();
+      if (!/^_ga/.test(name)) return;
+      ['', '; domain=' + host, '; domain=.' + host].forEach(function (d) {
+        document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/' + d;
+      });
+    });
   }
   function css(el, s) { for (var k in s) { el.style[k] = s[k]; } return el; }
 
@@ -139,7 +163,7 @@
     });
     var p = document.createElement('p');
     css(p, { margin: '0 0 12px' });
-    p.appendChild(document.createTextNode('We’d like to use optional analytics and affiliate-tracking scripts (Metricool and Travelpayouts). They only load if you accept. '));
+    p.appendChild(document.createTextNode('We’d like to use optional analytics, affiliate-tracking and booking-widget scripts (Google Analytics, Metricool and Travelpayouts). They only load if you accept. '));
     var a = document.createElement('a');
     a.href = '/privacy/';
     a.textContent = 'Privacy policy';
@@ -173,7 +197,7 @@
     hideBanner();
     if (v === 'granted') { flush(); }
     else if (!anyLoaded) { deferredWidgets(); }
-    else if (anyLoaded) { location.reload(); }  /* withdrawing: reload so the scripts stop */
+    else { clearGaCookies(); if (anyLoaded) location.reload(); }  /* withdrawing: reload so the scripts stop */
   }
 
   function footerLinks() {
