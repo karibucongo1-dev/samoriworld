@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
-import Newsletter from '@/components/Newsletter';
 import ProviderLinks from '@/components/ProviderLinks';
+import JsonLd from '@/components/JsonLd';
 import TravelpayoutsEmbed from '@/components/TravelpayoutsEmbed';
+import { absoluteUrl } from '@/lib/site-config';
 import { FLIGHTS_WIDGET_SRC } from '@/lib/travelpayouts';
 
 export const metadata: Metadata = {
-  description: 'Flights, cars, activities and everything in between — all in one place, all at the best price we can find.',
+  title: { absolute: 'Samori World | Travel Guides, Flights, Hotels & eSIMs' },
+  description: 'Destination guides plus flight, hotel, car rental, activity and eSIM search from our booking partners, all in one place.',
   alternates: { canonical: '/' },
   verification: { other: { 'msvalidate.01': 'E5792D0FB6EFD26152D8A101967A9775' } },
 };
@@ -13,19 +15,43 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      <section className="relative overflow-hidden">
-        <div className="relative h-[560px] w-full sm:h-[680px]">
-          <img alt="Airbus A380 banking in flight against a cloudy sky" className="object-cover" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', color: 'transparent' }} src="https://images.unsplash.com/photo-1543903905-cee4ab46985c?q=80&amp;w=2400&amp;auto=format&amp;fit=crop" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/45">
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'Organization',
+          '@id': absoluteUrl('/#organization'),
+          name: 'Samori World',
+          url: absoluteUrl('/'),
+          email: 'info@samori.net',
+        }}
+      />
+      {/* samori-hero.css and /images/samori-hero-a380.jpg are static files in public/. */}
+      <link rel="stylesheet" href="/samori-hero.css" precedence="default" />
+      <section className="samori-hero">
+        <div className="samori-hero__stage">
+          <div className="samori-hero__bg">
+            <img alt="Airbus A380 flying above the clouds" className="samori-hero__img" src="/images/samori-hero-a380.jpg" width="934" height="887" fetchPriority="high" />
           </div>
-          <a href="https://unsplash.com/@pixtolero2" target="_blank" rel="noopener noreferrer" className="absolute right-4 top-4 rounded bg-black/50 px-2 py-1 text-[11px] text-white/90 backdrop-blur-sm transition-colors hover:text-white">Photo: Daniel Eledut / Unsplash</a>
-          <h1 className="sr-only">Samori World — Explore More. Pay Less.</h1>
+          <div className="samori-hero__copy">
+            <p className="samori-hero__eyebrow">Your world, your way</p>
+            <h1 className="samori-hero__title">
+              <span>Your next adventure</span> <span className="samori-hero__accent">starts here.</span>
+            </h1>
+            <p className="samori-hero__text">Discover flights, stays and experiences for your next escape.</p>
+            <div className="samori-hero__buttons">
+              <a className="samori-hero__btn samori-hero__btn--primary" href="/flights/">
+                Explore flights<span aria-hidden="true">→</span>
+              </a>
+              <a className="samori-hero__btn samori-hero__btn--outline" href="/destinations/">
+                Discover destinations<span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
           <div className="absolute inset-x-6 bottom-0 translate-y-1/2 sm:inset-x-16">
             <TravelpayoutsEmbed src={FLIGHTS_WIDGET_SRC} className="mx-auto w-full max-w-3xl" />
           </div>
         </div>
-        <div className="h-14 sm:h-16" aria-hidden="true">
-        </div>
+        <div className="h-14 sm:h-16" aria-hidden="true"></div>
       </section>
       <ProviderLinks
         className="mt-4 flex flex-wrap items-center justify-center gap-2 py-4 bg-white dark:bg-zinc-950"
@@ -62,24 +88,24 @@ export default function HomePage() {
         <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-3xl">This Week's Best Finds</h2>
         <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
           <a className="group overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md dark:border-white/10 dark:bg-zinc-900" href="/destinations/doha/">
-            <div className="flex h-40 items-center justify-center bg-gradient-to-br from-sky-400 to-blue-700 text-6xl">🕌</div>
+            <div className="h-40 overflow-hidden"><img src="/destinations/doha/images/Doha-Corniche.webp" alt="Doha skyline from the Corniche" loading="lazy" className="h-full w-full object-cover transition-transform group-hover:scale-105" /></div>
             <div className="p-5">
               <h3 className="font-semibold text-zinc-900 dark:text-zinc-50">Doha, here we come</h3>
               <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">Souqs, skyline towers and desert safaris</p>
             </div>
           </a>
           <a className="group overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md dark:border-white/10 dark:bg-zinc-900" href="/things-to-do/">
-            <div className="flex h-40 items-center justify-center bg-gradient-to-br from-amber-400 to-orange-600 text-6xl">🏛️</div>
+            <div className="h-40 overflow-hidden"><img src="/destinations/rome/images/colosseum-rome.jpg" alt="The Colosseum in Rome" loading="lazy" className="h-full w-full object-cover transition-transform group-hover:scale-105" /></div>
             <div className="p-5">
               <h3 className="font-semibold text-zinc-900 dark:text-zinc-50">Rome in a day</h3>
-              <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">Skip-the-line Colosseum tickets from $19</p>
+              <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">Skip-the-line Colosseum tickets and tours</p>
             </div>
           </a>
           <a className="group overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md dark:border-white/10 dark:bg-zinc-900" href="/esim/">
             <div className="flex h-40 items-center justify-center bg-gradient-to-br from-violet-400 to-indigo-600 text-6xl">🌐</div>
             <div className="p-5">
               <h3 className="font-semibold text-zinc-900 dark:text-zinc-50">Stay connected anywhere</h3>
-              <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">5GB eSIM from $4.50</p>
+              <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">Compare travel eSIM data plans</p>
             </div>
           </a>
         </div>
@@ -90,7 +116,7 @@ export default function HomePage() {
         <div className="mt-8 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
           <a className="group overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md dark:border-white/10 dark:bg-zinc-900" href="/destinations/dubai/">
             <div className="h-32 overflow-hidden">
-              <img src="/destinations/dubai/images/dubai-international-airport-dxb.jpg" alt="Dubai skyline" className="h-full w-full object-cover" />
+              <img src="/destinations/dubai/images/dubai-international-airport-dxb.jpg" alt="Dubai skyline" className="h-full w-full object-cover" loading="lazy" decoding="async" />
             </div>
             <div className="p-4">
               <h3 className="font-semibold text-zinc-900 dark:text-zinc-50">Dubai</h3>
@@ -118,7 +144,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <Newsletter />
     </>
   );
 }

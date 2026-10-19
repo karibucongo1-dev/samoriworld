@@ -1,12 +1,11 @@
 import type { Metadata } from 'next';
-import Newsletter from '@/components/Newsletter';
 import ProviderLinks from '@/components/ProviderLinks';
 import TravelpayoutsEmbed from '@/components/TravelpayoutsEmbed';
 import { FLIGHTS_WIDGET_SRC } from '@/lib/travelpayouts';
 
 export const metadata: Metadata = {
-  title: 'Cheap Flights Worldwide',
-  description: 'Compare hundreds of airlines in seconds and lock in the lowest fare with Samori World.',
+  title: 'Compare Flights Worldwide',
+  description: 'Search and compare flights from many airlines and booking sites in one place with Samori World.',
   alternates: { canonical: '/flights/' },
 };
 
@@ -16,7 +15,7 @@ export default function FlightsPage() {
       <section className="relative overflow-hidden bg-gradient-to-b from-teal-50 via-white to-white dark:from-teal-950/40 dark:via-black dark:to-black">
         <div className="mx-auto flex max-w-4xl flex-col items-center px-6 py-16 text-center sm:py-20">
           <h1 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-5xl">Find Cheap Flights Worldwide</h1>
-          <p className="mt-5 max-w-2xl text-lg text-zinc-600 dark:text-zinc-400">Compare hundreds of airlines in seconds and lock in the lowest fare — no tab-hopping required.</p>
+          <p className="mt-5 max-w-2xl text-lg text-zinc-600 dark:text-zinc-400">Search many airlines and booking sites at once, then book directly with the provider you choose.</p>
           <div className="mt-10 w-full">
             <TravelpayoutsEmbed src={FLIGHTS_WIDGET_SRC} className="mx-auto w-full max-w-3xl" />
             <ProviderLinks
@@ -35,28 +34,24 @@ export default function FlightsPage() {
             <div className="flex h-28 items-center justify-center bg-gradient-to-br from-teal-400 to-cyan-600 text-5xl">🏝️</div>
             <div className="p-4">
               <h3 className="font-semibold text-zinc-900 dark:text-zinc-50">New York → Bali</h3>
-              <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">from $412</p>
             </div>
           </div>
           <div className="overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm dark:border-white/10 dark:bg-zinc-900">
             <div className="flex h-28 items-center justify-center bg-gradient-to-br from-amber-400 to-orange-600 text-5xl">🏛️</div>
             <div className="p-4">
               <h3 className="font-semibold text-zinc-900 dark:text-zinc-50">London → Rome</h3>
-              <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">from $58</p>
             </div>
           </div>
           <div className="overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm dark:border-white/10 dark:bg-zinc-900">
             <div className="flex h-28 items-center justify-center bg-gradient-to-br from-fuchsia-400 to-purple-600 text-5xl">🏯</div>
             <div className="p-4">
               <h3 className="font-semibold text-zinc-900 dark:text-zinc-50">Los Angeles → Tokyo</h3>
-              <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">from $389</p>
             </div>
           </div>
           <div className="overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm dark:border-white/10 dark:bg-zinc-900">
             <div className="flex h-28 items-center justify-center bg-gradient-to-br from-orange-400 to-red-600 text-5xl">🕌</div>
             <div className="p-4">
               <h3 className="font-semibold text-zinc-900 dark:text-zinc-50">Paris → Marrakech</h3>
-              <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">from $74</p>
             </div>
           </div>
         </div>
@@ -103,7 +98,6 @@ export default function FlightsPage() {
           </div>
         </div>
       </section>
-      <Newsletter />
     </>
   );
 }

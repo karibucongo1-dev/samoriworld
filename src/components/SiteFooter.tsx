@@ -1,13 +1,17 @@
 import Link from 'next/link';
 import CookieSettingsButton from '@/components/CookieSettingsButton';
-import { SITE_NAME, SITE_TAGLINE } from '@/lib/site-config';
+import { SITE_ID, SITE_NAME, SITE_TAGLINE } from '@/lib/site-config';
 
-const socialLinks = [
-  { label: 'IG', name: 'Instagram' },
-  { label: 'X', name: 'X' },
-  { label: 'FB', name: 'Facebook' },
-  { label: 'TT', name: 'TikTok' },
-];
+const guideLinks =
+  SITE_ID === 'samori-net'
+    ? [
+        { href: '/hotels/where-to-stay-in-dubai/', label: 'Where to stay in Dubai' },
+        { href: '/hotels/where-to-stay-in-doha/', label: 'Where to stay in Doha' },
+        { href: '/blog/bali-budget-guide/', label: 'Bali on a budget' },
+        { href: '/about/', label: 'About us' },
+        { href: '/contact/', label: 'Contact' },
+      ]
+    : [];
 
 export default function SiteFooter() {
   const [firstWord, ...rest] = SITE_NAME.split(' ');
@@ -22,21 +26,9 @@ export default function SiteFooter() {
               {firstWord} <span className="text-teal-600 dark:text-teal-400">{restWords}</span>
             </Link>
             <p className="mt-3 max-w-sm text-sm text-zinc-500 dark:text-zinc-400">
-              We compare flights, cars, activities and eSIMs across dozens of providers so you can spend less time
-              booking and more time exploring.
+              Destination guides plus flight, hotel, car rental, activity and eSIM search from our booking partners.
+              Some links are affiliate links: we may earn a commission at no extra cost to you.
             </p>
-            <div className="mt-5 flex items-center gap-3">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href="#"
-                  aria-label={social.name}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-black/10 text-xs font-semibold text-zinc-600 transition-colors hover:border-teal-600 hover:text-teal-600 dark:border-white/15 dark:text-zinc-400 dark:hover:border-teal-400 dark:hover:text-teal-400"
-                >
-                  {social.label}
-                </a>
-              ))}
-            </div>
           </div>
           <div>
             <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-50">Quick Links</h3>
@@ -64,6 +56,11 @@ export default function SiteFooter() {
               <Link className="hover:text-zinc-900 dark:hover:text-zinc-50" href="/destinations/">
                 Destinations
               </Link>
+              {guideLinks.map((link) => (
+                <Link key={link.href} className="hover:text-zinc-900 dark:hover:text-zinc-50" href={link.href}>
+                  {link.label}
+                </Link>
+              ))}
             </nav>
           </div>
         </div>

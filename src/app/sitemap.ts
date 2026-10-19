@@ -6,7 +6,18 @@ import { absoluteUrl, SITE_ID } from '@/lib/site-config';
 
 export const dynamic = 'force-static';
 
-const nextRoutes = ['/', '/flights/', '/hotels/', '/car-rental/', '/esim/', '/destinations/', '/blog/bali-budget-guide/', '/privacy/'];
+// Only canonical, indexable pages. /privacy/ is noindex, so it stays out.
+export const nextRoutes = [
+  '/',
+  '/about/',
+  '/contact/',
+  '/flights/',
+  '/hotels/',
+  '/car-rental/',
+  '/esim/',
+  '/destinations/',
+  '/blog/bali-budget-guide/',
+];
 
 function handMadeRoutes(): string[] {
   const root = path.join(process.cwd(), 'public');

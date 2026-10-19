@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Newsletter from '@/components/Newsletter';
 import KlookHotelSearch from '@/components/KlookHotelSearch';
 
 export const metadata: Metadata = {
@@ -39,7 +38,6 @@ export default function HotelsPage() {
           </div>
         </div>
       </section>
-      <Newsletter />
     </>
   );
 }
