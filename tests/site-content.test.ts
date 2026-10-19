@@ -61,10 +61,8 @@ test('Google Analytics only loads through consent.js', () => {
 });
 
 test('no static page loads Google Analytics inline', () => {
-  // The Stover pages (hand-built, ad landing pages) carry their own consent-gated GA loader plus assets/page-consent.js.
-  // They are kept exactly as they were live; every other static page must use consent.js.
-  const ownLoader = /\/public\/stover(-women)?\/index\.html$/;
-  for (const page of staticPages().filter((p) => !ownLoader.test(p))) {
+  // Every static page, the Stover landing pages included, loads GA only through consent.js.
+  for (const page of staticPages()) {
     const html = fs.readFileSync(page, 'utf8');
     assert.ok(!/<script[^>]*googletagmanager\.com/i.test(html), `${path.relative(root, page)} loads GA directly; it must go through consent.js`);
     assert.ok(!html.includes('G-LKMZFYPFHW'), `${path.relative(root, page)} has an inline GA ID`);
@@ -81,12 +79,5 @@ test('static pages that had the Shop link on the live site keep it', () => {
   for (const page of pages) {
     const html = fs.readFileSync(path.join(root, page), 'utf8');
     assert.ok(html.includes('href="https://shop.samori.net/">Shop</a></nav>'), `${page} is missing the header Shop link`);
-  }
-});
-
-test('no static page loads Google Analytics itself; consent.js is the only loader', () => {
-  for (const file of staticPages()) {
-    const html = fs.readFileSync(file, 'utf8');
-    assert.ok(!html.includes('googletagmanager.com/gtag'), `${path.relative(root, file)} loads GA outside consent.js`);
   }
 });
