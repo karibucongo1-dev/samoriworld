@@ -1,7 +1,7 @@
 'use client';
 
-import Script from 'next/script';
-import type { ReactNode } from 'react';
+import { useEffect, useRef, type ReactNode } from 'react';
+import { whenConsentGranted } from '@/lib/consent';
 
 interface TravelpayoutsWidgetProps {
   /** Script src URL for the Travelpayouts widget (tp.media/content?...). */
@@ -23,13 +23,33 @@ export default function TravelpayoutsWidget({
   height = 'auto',
   id,
 }: TravelpayoutsWidgetProps) {
+  const mount = useRef<HTMLDivElement>(null);
+
+  // The partner script is only inserted after the visitor accepts optional scripts.
+  useEffect(() => {
+    let cancelled = false;
+    whenConsentGranted(() => {
+      const node = mount.current;
+      if (cancelled || !node) return;
+      const script = document.createElement('script');
+      script.id = `tp-widget-script-${id}`;
+      script.async = true;
+      script.src = src;
+      node.appendChild(script);
+    });
+    return () => {
+      cancelled = true;
+      if (mount.current) mount.current.innerHTML = '';
+    };
+  }, [src, id]);
+
   return (
     <div
       id={`tp-widget-${id}`}
       style={{ width, height, position: 'relative' }}
     >
       {fallback}
-      <Script id={`tp-widget-script-${id}`} src={src} strategy="afterInteractive" async />
+      <div ref={mount} />
     </div>
   );
 }

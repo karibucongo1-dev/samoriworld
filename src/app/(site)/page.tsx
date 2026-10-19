@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
-import Newsletter from '@/components/Newsletter';
 import ProviderLinks from '@/components/ProviderLinks';
+import JsonLd from '@/components/JsonLd';
 import TravelpayoutsEmbed from '@/components/TravelpayoutsEmbed';
+import { absoluteUrl } from '@/lib/site-config';
 import { FLIGHTS_WIDGET_SRC } from '@/lib/travelpayouts';
 
 export const metadata: Metadata = {
-  description: 'Flights, cars, activities and everything in between — all in one place, all at the best price we can find.',
+  title: { absolute: 'Samori World | Travel Guides, Flights, Hotels & eSIMs' },
+  description: 'Destination guides plus flight, hotel, car rental, activity and eSIM search from our booking partners, all in one place.',
   alternates: { canonical: '/' },
   verification: { other: { 'msvalidate.01': 'E5792D0FB6EFD26152D8A101967A9775' } },
 };
@@ -13,6 +15,16 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'Organization',
+          '@id': absoluteUrl('/#organization'),
+          name: 'Samori World',
+          url: absoluteUrl('/'),
+          email: 'info@samori.net',
+        }}
+      />
       <section className="relative overflow-hidden">
         <div className="relative h-[560px] w-full sm:h-[680px]">
           <img alt="Airbus A380 banking in flight against a cloudy sky" className="object-cover" style={{ position: 'absolute', height: '100%', width: '100%', left: '0', top: '0', right: '0', bottom: '0', color: 'transparent' }} src="https://images.unsplash.com/photo-1543903905-cee4ab46985c?q=80&amp;w=2400&amp;auto=format&amp;fit=crop" />
@@ -72,14 +84,14 @@ export default function HomePage() {
             <div className="flex h-40 items-center justify-center bg-gradient-to-br from-amber-400 to-orange-600 text-6xl">🏛️</div>
             <div className="p-5">
               <h3 className="font-semibold text-zinc-900 dark:text-zinc-50">Rome in a day</h3>
-              <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">Skip-the-line Colosseum tickets from $19</p>
+              <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">Skip-the-line Colosseum tickets and tours</p>
             </div>
           </a>
           <a className="group overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md dark:border-white/10 dark:bg-zinc-900" href="/esim/">
             <div className="flex h-40 items-center justify-center bg-gradient-to-br from-violet-400 to-indigo-600 text-6xl">🌐</div>
             <div className="p-5">
               <h3 className="font-semibold text-zinc-900 dark:text-zinc-50">Stay connected anywhere</h3>
-              <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">5GB eSIM from $4.50</p>
+              <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">Compare travel eSIM data plans</p>
             </div>
           </a>
         </div>
@@ -90,7 +102,7 @@ export default function HomePage() {
         <div className="mt-8 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
           <a className="group overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md dark:border-white/10 dark:bg-zinc-900" href="/destinations/dubai/">
             <div className="h-32 overflow-hidden">
-              <img src="/destinations/dubai/images/dubai-international-airport-dxb.jpg" alt="Dubai skyline" className="h-full w-full object-cover" />
+              <img src="/destinations/dubai/images/dubai-international-airport-dxb.jpg" alt="Dubai skyline" className="h-full w-full object-cover" loading="lazy" decoding="async" />
             </div>
             <div className="p-4">
               <h3 className="font-semibold text-zinc-900 dark:text-zinc-50">Dubai</h3>
@@ -118,7 +130,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <Newsletter />
     </>
   );
 }

@@ -1,12 +1,11 @@
 import type { Metadata } from 'next';
-import Newsletter from '@/components/Newsletter';
 import ProviderLinks from '@/components/ProviderLinks';
 import TravelpayoutsEmbed from '@/components/TravelpayoutsEmbed';
 import { CAR_RENTAL_WIDGET_SRC } from '@/lib/travelpayouts';
 
 export const metadata: Metadata = {
   title: 'Car Rental — Find a Rental Car',
-  description: 'Search local rental companies with Localrent, or compare with our other partners. Clear prices and low deposits.',
+  description: 'Search local rental companies with Localrent, or compare with our other car rental partners.',
   alternates: { canonical: '/car-rental/' },
 };
 
@@ -77,7 +76,6 @@ export default function CarRentalPage() {
           </div>
         </div>
       </section>
-      <Newsletter />
     </>
   );
 }

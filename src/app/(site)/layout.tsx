@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     template: '%s | Samori World',
   },
   description:
-    'Flights, cars, activities and everything in between — all in one place, all at the best price we can find.',
+    'Destination guides plus flight, hotel, car rental, activity and eSIM search from our booking partners.',
   alternates: { canonical: '/' },
   icons: { icon: '/favicon.ico' },
 };

@@ -1,11 +1,20 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
-import { SITE_NAME } from '@/lib/site-config';
+import { SITE_NAME, SITE_URL } from '@/lib/site-config';
 import './globals.css';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: SITE_NAME,
   description: 'Travel guides and destination inspiration.',
+  // Shared social preview defaults; pages without their own openGraph inherit these.
+  openGraph: {
+    type: 'website',
+    siteName: SITE_NAME,
+    locale: 'en_GB',
+    images: [{ url: '/destinations/dubai/images/dubai-international-airport-dxb.jpg', alt: 'Dubai skyline' }],
+  },
+  twitter: { card: 'summary_large_image' },
 };
 
 export default function RootLayout({
