@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>https://www.karibucongo.com/discover-congo/</loc>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
 <loc>https://www.karibucongo.com/</loc>
 <changefreq>weekly</changefreq>
 <priority>1</priority>
@@ -46,12 +51,22 @@
 <priority>0.7</priority>
 </url>
 <url>
+<loc>https://www.karibucongo.com/destinations/brazzaville/</loc>
+<changefreq>weekly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
 <loc>https://www.karibucongo.com/destinations/abu-dhabi/</loc>
 <changefreq>weekly</changefreq>
 <priority>0.7</priority>
 </url>
 <url>
 <loc>https://www.karibucongo.com/destinations/dubai/</loc>
+<changefreq>weekly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://www.karibucongo.com/destinations/istanbul/</loc>
 <changefreq>weekly</changefreq>
 <priority>0.7</priority>
 </url>
@@ -97,6 +112,11 @@
 </url>
 <url>
 <loc>https://www.karibucongo.com/destinations/paris/</loc>
+<changefreq>weekly</changefreq>
+<priority>0.7</priority>
+</url>
+  <url>
+<loc>https://www.karibucongo.com/destinations/rome/</loc>
 <changefreq>weekly</changefreq>
 <priority>0.7</priority>
 </url>

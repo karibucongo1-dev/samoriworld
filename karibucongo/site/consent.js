@@ -90,7 +90,7 @@
     });
     var p = document.createElement('p');
     css(p, { margin: '0 0 12px' });
-    p.appendChild(document.createTextNode('We’d like to use optional analytics and affiliate-tracking scripts (Metricool and Travelpayouts). They only load if you accept. '));
+    p.appendChild(document.createTextNode('We’d like to use optional analytics and affiliate-tracking scripts (Google Analytics, Metricool and Travelpayouts). They only load if you accept. '));
     var a = document.createElement('a');
     a.href = '/privacy/';
     a.textContent = 'Privacy policy';
