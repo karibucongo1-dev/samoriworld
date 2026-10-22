@@ -33,6 +33,41 @@
     }
   };
 
+  /* Booking widgets (Travelpayouts tpembd.com). The page HTML holds them as
+     <script type="text/plain" data-consent-src="...">; they are switched on only after Accept. */
+  loaders.widgets = function () {
+    var list = document.querySelectorAll('script[data-consent-src]');
+    for (var i = 0; i < list.length; i++) {
+      var old = list[i];
+      var s = document.createElement('script');
+      s.async = true;
+      s.charset = 'utf-8';
+      s.src = old.getAttribute('data-consent-src');
+      old.parentNode.replaceChild(s, old);
+    }
+    var notes = document.querySelectorAll('[data-consent-note]');
+    for (var j = 0; j < notes.length; j++) notes[j].parentNode.removeChild(notes[j]);
+  };
+  function widgetNotes() {
+    if (read() === 'granted') return;
+    var list = document.querySelectorAll('script[data-consent-src]');
+    for (var i = 0; i < list.length; i++) {
+      var prev = list[i].previousElementSibling;
+      if (!prev || prev.tagName.toLowerCase() !== 'tp-cascoon') continue;
+      var p = document.createElement('p');
+      p.setAttribute('data-consent-note', '');
+      css(p, { margin: '8px 0', padding: '12px 14px', border: '1px dashed rgba(20,20,28,.35)', borderRadius: '8px', font: '400 14px/1.5 ' + FONT });
+      p.appendChild(document.createTextNode('This booking search box is provided by a partner and stays hidden until you allow optional partner scripts. '));
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = 'Cookie settings';
+      css(b, { background: 'none', border: '0', padding: '0', color: 'inherit', textDecoration: 'underline', cursor: 'pointer', font: 'inherit' });
+      b.addEventListener('click', function () { showBanner(); });
+      p.appendChild(b);
+      prev.parentNode.insertBefore(p, prev);
+    }
+  }
+
   var wanted = [];
   var loaded = {};
 
@@ -152,6 +187,8 @@
 
   function init() {
     footerLinks();
+    widgetNotes();
+    request('widgets');
     var attr = me && me.getAttribute('data-load');
     if (attr) request(attr.split(',').map(function (s) { return s.trim(); }));
     request(window.__samoriConsentQueue || []);
