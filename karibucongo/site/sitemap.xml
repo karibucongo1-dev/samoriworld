@@ -55,6 +55,16 @@
 <changefreq>weekly</changefreq>
 <priority>0.7</priority>
 </url>
+  <url>
+    <loc>https://www.karibucongo.com/destinations/lubumbashi/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.karibucongo.com/destinations/kundelungu-national-park/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
 <url>
 <loc>https://www.karibucongo.com/destinations/abu-dhabi/</loc>
 <changefreq>weekly</changefreq>
@@ -121,6 +131,21 @@
 <priority>0.7</priority>
 </url>
 <url>
+<loc>https://www.karibucongo.com/destinations/los-angeles/</loc>
+<changefreq>weekly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://www.karibucongo.com/destinations/tokyo/</loc>
+<changefreq>weekly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://www.karibucongo.com/destinations/manchester/</loc>
+<changefreq>weekly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
 <loc>https://www.karibucongo.com/hotels/where-to-stay-in-kinshasa/</loc>
 <changefreq>weekly</changefreq>
 <priority>0.7</priority>
@@ -159,5 +184,15 @@
 <loc>https://www.karibucongo.com/hotels/where-to-stay-in-singapore/</loc>
 <changefreq>weekly</changefreq>
 <priority>0.7</priority>
+</url>
+<url>
+<loc>https://www.karibucongo.com/about/</loc>
+<changefreq>yearly</changefreq>
+<priority>0.3</priority>
+</url>
+<url>
+<loc>https://www.karibucongo.com/contact/</loc>
+<changefreq>yearly</changefreq>
+<priority>0.3</priority>
 </url>
 </urlset>
