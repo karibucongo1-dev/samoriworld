@@ -33,6 +33,41 @@
     }
   };
 
+  /* Booking widgets (Travelpayouts tpembd.com). The page HTML holds them as
+     <script type="text/plain" data-consent-src="...">; they are switched on only after Accept. */
+  loaders.widgets = function () {
+    var list = document.querySelectorAll('script[data-consent-src]');
+    for (var i = 0; i < list.length; i++) {
+      var old = list[i];
+      var s = document.createElement('script');
+      s.async = true;
+      s.charset = 'utf-8';
+      s.src = old.getAttribute('data-consent-src');
+      old.parentNode.replaceChild(s, old);
+    }
+    var notes = document.querySelectorAll('[data-consent-note]');
+    for (var j = 0; j < notes.length; j++) notes[j].parentNode.removeChild(notes[j]);
+  };
+  function widgetNotes() {
+    if (read() === 'granted') return;
+    var list = document.querySelectorAll('script[data-consent-src]');
+    for (var i = 0; i < list.length; i++) {
+      var prev = list[i].previousElementSibling;
+      if (!prev || prev.tagName.toLowerCase() !== 'tp-cascoon') continue;
+      var p = document.createElement('p');
+      p.setAttribute('data-consent-note', '');
+      css(p, { margin: '8px 0', padding: '12px 14px', border: '1px dashed rgba(20,20,28,.35)', borderRadius: '8px', font: '400 14px/1.5 ' + FONT });
+      p.appendChild(document.createTextNode('This booking search box is provided by a partner and stays hidden until you allow optional partner scripts. '));
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = 'Cookie settings';
+      css(b, { background: 'none', border: '0', padding: '0', color: 'inherit', textDecoration: 'underline', cursor: 'pointer', font: 'inherit' });
+      b.addEventListener('click', function () { showBanner(); });
+      p.appendChild(b);
+      prev.parentNode.insertBefore(p, prev);
+    }
+  }
+
   var wanted = [];
   var loaded = {};
 
@@ -134,12 +169,6 @@
     var d = document.createElement('div');
     d.setAttribute('data-samori-legal', '');
     css(d, { marginTop: '10px', fontSize: '12px', opacity: '.85' });
-    var aAbout = document.createElement('a');
-    aAbout.href = '/about/';
-    aAbout.textContent = 'About';
-    var aContact = document.createElement('a');
-    aContact.href = '/contact/';
-    aContact.textContent = 'Contact';
     var a1 = document.createElement('a');
     a1.href = '/privacy/';
     a1.textContent = 'Privacy';
@@ -147,29 +176,19 @@
     a2.href = '#';
     a2.textContent = 'Cookie settings';
     a2.addEventListener('click', function (e) { e.preventDefault(); showBanner(); });
-    [aAbout, aContact, a1, a2].forEach(function (x) { css(x, { color: 'inherit', textDecoration: 'underline' }); });
-    d.appendChild(aAbout);
-    d.appendChild(document.createTextNode(' · '));
-    d.appendChild(aContact);
-    d.appendChild(document.createTextNode(' · '));
+    [a1, a2].forEach(function (x) { css(x, { color: 'inherit', textDecoration: 'underline' }); });
     d.appendChild(a1);
     d.appendChild(document.createTextNode(' · '));
     d.appendChild(a2);
     host.appendChild(d);
-    /* karibucongo.com: hide the footer social icons that still link to '#' (no real profiles yet).
-       CSS only, so the React-rendered footer is untouched. Remove this when real URLs are set. */
-    if (!document.getElementById('samori-hide-placeholder-social')) {
-      var st = document.createElement('style');
-      st.id = 'samori-hide-placeholder-social';
-      st.textContent = 'footer a[href="#"][aria-label="Instagram"],footer a[href="#"][aria-label="X"],footer a[href="#"][aria-label="Facebook"],footer a[href="#"][aria-label="TikTok"]{display:none!important}';
-      document.head.appendChild(st);
-    }
   }
 
   window.samoriConsent = { open: showBanner, status: read, load: request };
 
   function init() {
     footerLinks();
+    widgetNotes();
+    request('widgets');
     var attr = me && me.getAttribute('data-load');
     if (attr) request(attr.split(',').map(function (s) { return s.trim(); }));
     request(window.__samoriConsentQueue || []);
