@@ -191,6 +191,7 @@
     d.appendChild(document.createTextNode(' · '));
     d.appendChild(a2);
     host.appendChild(d);
+  }
 
   window.samoriConsent = { open: showBanner, status: read, load: request };
 
