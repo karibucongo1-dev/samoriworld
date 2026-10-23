@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><!-- Google tag (gtag.js) - loads only after the visitor accepts cookies via consent.js -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  (function(){
+    var loaded = false, tries = 0;
+    function loadGA(){
+      if (loaded) return; loaded = true;
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-K4704FKCCG';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'G-K4704FKCCG');
+    }
+    function check(){
+      var c = window.samoriConsent, st = (c && c.status) ? c.status() : null;
+      if (st === 'granted') { loadGA(); return; }
+      if (++tries > 1800) return;
+      setTimeout(check, 1000);
+    }
+    check();
+  })();
+</script><!-- Cookie banner (consent.js) -->
+<script>
+  window.addEventListener('load', function(){
+    if (window.samoriConsent || document.querySelector('script[src="/consent.js"]')) return;
+    var s = document.createElement('script'); s.src = '/consent.js'; document.body.appendChild(s);
+  });
+</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Contact Karibu Congo with questions, corrections or partnership enquiries.">
+<title>Contact | Karibu Congo</title>
+<link rel="canonical" href="https://www.karibucongo.com/contact/">
+<style>
+  body { font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: #171717; background: #fff; margin: 0; }
+  main { max-width: 46rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+  h1 { font-size: 1.9rem; margin: 0 0 .5rem; }
+  h2 { font-size: 1.2rem; margin: 2rem 0 .5rem; }
+  a { color: #0f766e; }
+  table { border-collapse: collapse; width: 100%; font-size: .9rem; margin: .5rem 0 1rem; }
+  th, td { border: 1px solid #d4d4d8; padding: .45rem .6rem; text-align: left; vertical-align: top; }
+  th { background: #f4f4f5; }
+  .draft { background: #fef3c7; border: 1px solid #f59e0b; padding: .75rem 1rem; border-radius: .5rem; }
+  @media (prefers-color-scheme: dark) {
+    body { color: #ededed; background: #0a0a0a; } a { color: #5eead4; }
+    th { background: #18181b; } th, td { border-color: #3f3f46; } .draft { background: #422006; border-color: #b45309; }
+  }
+</style>
+<script src="/hotel-search.js?v=2" defer></script></head>
+<body>
+<main>
+<p><a href="/">&larr; Karibu Congo</a></p>
+<h1>Contact us</h1>
+
+<p>We read every message. The quickest way to reach us is by email:</p>
+<p><a href="mailto:hello@karibucongo.com"><strong>hello@karibucongo.com</strong></a></p>
+
+<h2>What to write to us about</h2>
+<ul>
+<li>Corrections or out-of-date information in a guide</li>
+<li>Suggestions for a destination or topic</li>
+<li>Partnership or advertising enquiries</li>
+</ul>
+
+<h2>Before you write</h2>
+<p>Karibu Congo is a comparison and guide site. We do not take bookings, so we cannot change, cancel or refund a booking. For that, please contact the provider you booked with (the airline, hotel or booking site) using the details in your confirmation email.</p>
+
+<p>We aim to reply within two working days.</p>
+
+<p><small>Karibu Congo is run by Samori Ltd, company number 17363551. See our <a href="/privacy/">Privacy and cookies</a> page for how we handle your message.</small></p>
+</main>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><!-- Google tag (gtag.js) - loads only after the visitor accepts cookies via consent.js -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  (function(){
+    var loaded = false, tries = 0;
+    function loadGA(){
+      if (loaded) return; loaded = true;
+      var s = document.createElement('script'); s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-K4704FKCCG';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'G-K4704FKCCG');
+    }
+    function check(){
+      var c = window.samoriConsent, st = (c && c.status) ? c.status() : null;
+      if (st === 'granted') { loadGA(); return; }
+      if (++tries > 1800) return;
+      setTimeout(check, 1000);
+    }
+    check();
+  })();
+</script><!-- Cookie banner (consent.js) -->
+<script>
+  window.addEventListener('load', function(){
+    if (window.samoriConsent || document.querySelector('script[src="/consent.js"]')) return;
+    var s = document.createElement('script'); s.src = '/consent.js'; document.body.appendChild(s);
+  });
+</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Karibu Congo is a travel guide and comparison site for trips to Congo and across Africa, run by Samori Ltd.">
+<title>About | Karibu Congo</title>
+<link rel="canonical" href="https://www.karibucongo.com/about/">
+<style>
+  body { font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: #171717; background: #fff; margin: 0; }
+  main { max-width: 46rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+  h1 { font-size: 1.9rem; margin: 0 0 .5rem; }
+  h2 { font-size: 1.2rem; margin: 2rem 0 .5rem; }
+  a { color: #0f766e; }
+  table { border-collapse: collapse; width: 100%; font-size: .9rem; margin: .5rem 0 1rem; }
+  th, td { border: 1px solid #d4d4d8; padding: .45rem .6rem; text-align: left; vertical-align: top; }
+  th { background: #f4f4f5; }
+  .draft { background: #fef3c7; border: 1px solid #f59e0b; padding: .75rem 1rem; border-radius: .5rem; }
+  @media (prefers-color-scheme: dark) {
+    body { color: #ededed; background: #0a0a0a; } a { color: #5eead4; }
+    th { background: #18181b; } th, td { border-color: #3f3f46; } .draft { background: #422006; border-color: #b45309; }
+  }
+</style>
+<script src="/hotel-search.js?v=2" defer></script></head>
+<body>
+<main>
+<p><a href="/">&larr; Karibu Congo</a></p>
+<h1>About Karibu Congo</h1>
+
+<p>Karibu means &ldquo;welcome&rdquo; in Swahili, and that is the idea behind this site: a friendly, practical starting point for planning a trip to Congo and the wider African continent.</p>
+
+<h2>What we do</h2>
+<p>Booking travel to and within Africa often means opening ten tabs and still not knowing whether you found a fair price. Karibu Congo brings the useful parts together in one place:</p>
+<ul>
+<li><strong>Compare</strong> flights, hotels, car rental, tours and travel eSIMs across several providers.</li>
+<li><strong>Read real guides.</strong> Our destination pages, starting with Kinshasa, give practical advice on where to stay, how to get around and what is actually worth your time.</li>
+<li><strong>Plan for when things go wrong,</strong> from flight delay compensation to staying connected abroad.</li>
+</ul>
+
+<h2>How the site is funded</h2>
+<p>Some links on Karibu Congo are affiliate links. If you book through one, we may earn a commission at no extra cost to you. This does not change the price you pay, and we aim to show options that are useful for the trip rather than the ones that pay the most. We do not sell the bookings ourselves: you complete your purchase with the provider.</p>
+
+<h2>Who runs it</h2>
+<p>Karibu Congo is owned and run by Samori Ltd, a company registered in England and Wales (company number 17363551), based in London, United Kingdom. Our aim is simple: make planning a trip to Congo and across Africa easier, with clear comparisons and honest, practical guidance in one place.</p>
+
+<h2>Get in touch</h2>
+<p>Questions, corrections or suggestions for a destination guide? See the <a href="/contact/">Contact page</a>. You can also read how we handle data on our <a href="/privacy/">Privacy and cookies</a> page.</p>
+</main>
+</body>
+</html>
