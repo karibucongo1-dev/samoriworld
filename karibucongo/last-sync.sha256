@@ -148,6 +148,7 @@ aad7141a1ca5c1230e89139c64f699dc7d38ce75a30db67f3e39d98b87a3245a  ./_not-found/_
 003ba1c009b53b7aab344d4bf6a078f470f2ae5983201e728216c07f91b26d8f  ./_not-found/__next._tree.txt
 c6eff960d088d53369d713c42136599f7cf8b579609bfe5c0b6c9e66ee4ec97a  ./_not-found/index.html
 89cea8656f9d99ca1ec084716636dd2bea217c6dcbc4213b6e8dd0b9245c4590  ./_not-found/index.txt
+1929498480e39a940a331c1ddfe54adce43f30260a8211f4f8c2452d57275453  ./about/index.html
 1bc09b788a49897fd1242b791b50da3c26029eaf6855e25c2b00b2dccf12b247  ./blog/bali-budget-guide/__next._full.txt
 fab96bdfd5b0f37580e55e5c1e511c1a3656665e4f5e597366d1734b03402374  ./blog/bali-budget-guide/__next._tree.txt
 f0e4813ef2e24a6f4a64f8dd7b394b068451f0d7569a897f3620421c798ac64b  ./blog/bali-budget-guide/__next.blog.bali-budget-guide.__PAGE__.txt
@@ -158,7 +159,8 @@ c0f5768ec90d934b0a848b1f0e097f04241bb789e19013ac006110760b7b4dd5  ./car-rental/_
 c980f32378e2d6c863347e7f5b919839104085f451cbfe897c021accf132bfa2  ./car-rental/__next.car-rental.__PAGE__.txt
 3e6d3a9d3840966d83facb7920be8f82cfb040c52a6b933e04eaf12a523b09ef  ./car-rental/index.html
 9197a7910d232e354e899f3734e5d9d21877b67c78a4c907e9ddc0516d34597b  ./car-rental/index.txt
-c1c76f4fa9984afa8b387f36be1c6974259efd1784fea6036001ab329c7cb534  ./consent.js
+234278ad4be09fe89eea5ebabfcd90d69ef6c4adada5c08f8500bc24f883a0b4  ./consent.js
+ef188645be05ca8cb1bc0b3eec89ee4ce6fa8412a1cbca0063dc6ffb75f973d9  ./contact/index.html
 45f8838ba07bad27c60537fcc1650374404623d94acf3476ec7176c6561e5209  ./destinations/__next._full.txt
 cb109afe1eac5d92915e4ed7bd9031d976286b1030b8a356d43ab18e789a9f84  ./destinations/__next._tree.txt
 82a1609f6935cfe14be9f29e00f7a419fb4bc108e760ca4e7edeead9ba3532cb  ./destinations/__next.destinations.__PAGE__.txt
@@ -639,9 +641,9 @@ cbe30df622d837cd5aac1ec82fb7a3e645dbeb116f506d2242e8f336f8dbe3f8  ./lycamobile/a
 c6ee778f4dcf52e206701555a57d8742f9adbc88cc9b265094fb5d404155d899  ./lycamobile/assets/sim-cards-set.jpg
 ab2849e4cc0c2509964aef06b4b795de460db191df8c0b3e969630b721e23c21  ./lycamobile/index.html
 55995dfad6ecb4945a1e856ddca03c5e16aa5bf13fd21b4df6a74ae79357bcfc  ./next.svg
-a3c101b42dd4288948a475861d2e7dd35bafcbbfb0e35bbd2038fabf516ad01d  ./privacy/index.html
+74e4115145ff87b5830c485d43d6da8f22846a2f69d4ae5d91b64e4d698d4658  ./privacy/index.html
 d5e554fa8ed73bc2ae208e42055953ebc3eefbffc0aa982244ba4d0dd1c4aa27  ./robots.txt
-01096599093d2aa2e3e5b89d1816139b68990d9e59560c7ca888ebf7434559a5  ./sitemap.xml
+e140ec410e573ce95b943a01724349ff35e4c8df1ebc78d07e0fe85429511d0e  ./sitemap.xml
 caaee91e923d90677116b5c377f3708c085bc8f73aae6a28c9014a78659f3ef0  ./things-to-do/__next._full.txt
 5b98496b95fe426abb5d20654293a84f99ea633d67661e1667887e0cdb74b61f  ./things-to-do/__next._tree.txt
 2a41ddf1e13376e57f4231ba72b273d869b56063f35176851a8188e23c85cc33  ./things-to-do/__next.things-to-do.__PAGE__.txt
