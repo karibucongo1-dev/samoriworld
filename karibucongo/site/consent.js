@@ -191,14 +191,6 @@
     d.appendChild(document.createTextNode(' · '));
     d.appendChild(a2);
     host.appendChild(d);
-    /* karibucongo.com: hide the footer social icons that still link to '#' (no real profiles yet).
-       CSS only, so the React-rendered footer is untouched. Remove this when real URLs are set. */
-    if (!document.getElementById('samori-hide-placeholder-social')) {
-      var st = document.createElement('style');
-      st.id = 'samori-hide-placeholder-social';
-      st.textContent = 'footer a[href="#"][aria-label="Instagram"],footer a[href="#"][aria-label="X"],footer a[href="#"][aria-label="Facebook"],footer a[href="#"][aria-label="TikTok"]{display:none!important}';
-      document.head.appendChild(st);
-    }
   }
 
   window.samoriConsent = { open: showBanner, status: read, load: request };
