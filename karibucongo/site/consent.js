@@ -203,8 +203,23 @@
 
   window.samoriConsent = { open: showBanner, status: read, load: request };
 
+  /* The footer on karibucongo.com is rendered by React. If the footer line is added before the page
+     has hydrated, React removes it again, so keep checking and put it back until it stays. */
+  function watchFooter() {
+    var timer = null;
+    function check() {
+      timer = null;
+      var f = document.querySelector('footer');
+      if (f && !f.querySelector('[data-samori-legal]')) footerLinks();
+    }
+    function schedule() { if (timer === null) timer = setTimeout(check, 300); }
+    try { new MutationObserver(schedule).observe(document.documentElement, { childList: true, subtree: true }); } catch (e) {}
+    window.addEventListener('load', function () { setTimeout(check, 1500); });
+  }
+
   function init() {
     footerLinks();
+    watchFooter();
     widgetNotes();
     request('widgets');
     var attr = me && me.getAttribute('data-load');
