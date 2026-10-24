@@ -190,6 +190,13 @@
     d.appendChild(a1);
     d.appendChild(document.createTextNode(' · '));
     d.appendChild(a2);
+    /* Company details: operator, company number and registered office. */
+    var co = document.createElement('div');
+    co.setAttribute('data-samori-company', '');
+    css(co, { marginTop: '6px' });
+    co.textContent = 'Karibu Congo is run by Samori Ltd, registered in England and Wales, no. 17363551. ' +
+      'Registered office: 2c Whitefriars Drive, Harrow, HA3 5HN, United Kingdom.';
+    d.appendChild(co);
     host.appendChild(d);
   }
 
