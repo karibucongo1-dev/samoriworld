@@ -1,6 +1,10 @@
 import type { Metadata } from 'next';
 import { absoluteUrl } from '@/lib/site-config';
 import AffiliateCTA from '@/components/AffiliateCTA';
+import { hasLiveAffiliateLink } from '@/lib/affiliate';
+
+// Set to the real affiliate-network URL when it exists; the section stays hidden until then.
+const VPN_AFFILIATE_URL = '';
 
 export const metadata: Metadata = {
   title: 'Top 5 Fast VPNs for UK Streaming & Security',
@@ -9,9 +13,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: absoluteUrl('/guides/best-vpn-uk/'),
   },
+  // Held back from search: the figures below are illustrative until checked against each provider.
+  robots: { index: false, follow: true },
 };
 
 // Illustrative figures — confirm current pricing/terms on each provider's site before publishing.
+// While they are unverified this page is noindex, left out of the sitemap and llms.txt, has no
+// structured-data prices, and shows no buy links. Remove `robots` above once verified.
 const vpns = [
   { name: 'NordVPN', priceGBP: 3.99, servers: '60+ countries', encryption: 'AES-256', guaranteeDays: 30 },
   { name: 'ExpressVPN', priceGBP: 5.99, servers: '105 countries', encryption: 'AES-256', guaranteeDays: 30 },
@@ -24,6 +32,11 @@ export default function VpnGuidePage() {
   return (
     <main>
       <h1>Top 5 Fast VPNs for UK Streaming & Security</h1>
+
+      <p>
+        <strong>Draft:</strong> the prices and terms below are illustrative and have not been
+        checked against each provider's current offer.
+      </p>
 
       <p>
         For UK streaming and everyday privacy, Surfshark and CyberGhost offer the lowest monthly
@@ -55,18 +68,18 @@ export default function VpnGuidePage() {
         </tbody>
       </table>
 
-      <section aria-labelledby="ctas-heading">
-        <h2 id="ctas-heading">Where to sign up</h2>
-        <ul>
-          {vpns.map((v) => (
-            <li key={v.name}>
-              <AffiliateCTA href="https://example-affiliate-network.com/REPLACE_WITH_LINK">
-                {v.name} — view plans
-              </AffiliateCTA>
-            </li>
-          ))}
-        </ul>
-      </section>
+      {hasLiveAffiliateLink(VPN_AFFILIATE_URL) && (
+        <section aria-labelledby="ctas-heading">
+          <h2 id="ctas-heading">Where to sign up</h2>
+          <ul>
+            {vpns.map((v) => (
+              <li key={v.name}>
+                <AffiliateCTA href={VPN_AFFILIATE_URL}>{v.name} — view plans</AffiliateCTA>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <section aria-labelledby="legal-heading">
         <h2 id="legal-heading">Is it legal to use a VPN in the UK?</h2>
@@ -77,24 +90,6 @@ export default function VpnGuidePage() {
         </p>
       </section>
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@graph': vpns.map((v) => ({
-              '@type': 'SoftwareApplication',
-              name: v.name,
-              applicationCategory: 'SecurityApplication',
-              offers: {
-                '@type': 'Offer',
-                priceCurrency: 'GBP',
-                price: v.priceGBP,
-              },
-            })),
-          }),
-        }}
-      />
     </main>
   );
 }

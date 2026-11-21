@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { absoluteUrl } from '@/lib/site-config';
 import AffiliateCTA from '@/components/AffiliateCTA';
+import { hasLiveAffiliateLink } from '@/lib/affiliate';
 
 export const metadata: Metadata = {
   title: 'Best Portable Power Banks for UK Travelers (2026 Review)',
@@ -9,10 +10,15 @@ export const metadata: Metadata = {
   alternates: {
     canonical: absoluteUrl('/guides/best-portable-power-banks-uk/'),
   },
+  // Held back from search: the figures below are illustrative until checked against real SKUs.
+  robots: { index: false, follow: true },
 };
 
 // Illustrative figures for a typical model in each brand's mid-range lineup —
 // confirm the exact SKU's spec sheet before publishing this guide live.
+// While they are unverified this page is noindex, left out of the sitemap and llms.txt, has no
+// Product/Offer structured data and shows no buy links. Remove `robots` above once verified.
+const POWER_BANK_AFFILIATE_URL = '';
 const models = [
   { brand: 'Anker', model: '(mid-range 20K class)', capacityMah: 20000, outputW: 22.5, weightG: 356, priceGBP: 40 },
   { brand: 'Belkin', model: '(mid-range 20K class)', capacityMah: 20000, outputW: 20, weightG: 372, priceGBP: 45 },
@@ -50,17 +56,6 @@ const jsonLd = {
         acceptedAnswer: { '@type': 'Answer', text: faq.answer },
       })),
     },
-    ...models.map((m) => ({
-      '@type': 'Product',
-      name: `${m.brand} portable power bank`,
-      brand: m.brand,
-      offers: {
-        '@type': 'Offer',
-        priceCurrency: 'GBP',
-        price: m.priceGBP,
-        availability: 'https://schema.org/InStock',
-      },
-    })),
   ],
 };
 
@@ -68,6 +63,11 @@ export default function PowerBanksGuidePage() {
   return (
     <main>
       <h1>Best Portable Power Banks for UK Travelers (2026 Review)</h1>
+
+      <p>
+        <strong>Draft:</strong> the capacities, outputs, weights and prices below are illustrative
+        and have not been checked against specific products.
+      </p>
 
       <p>
         For most UK travelers, a 20,000mAh bank from Anker or RAVPower hits the best balance of
@@ -99,18 +99,18 @@ export default function PowerBanksGuidePage() {
         </tbody>
       </table>
 
-      <section aria-labelledby="ctas-heading">
-        <h2 id="ctas-heading">Where to buy</h2>
-        <ul>
-          {models.map((m) => (
-            <li key={m.brand}>
-              <AffiliateCTA href="https://www.amazon.co.uk/dp/REPLACE_WITH_ASIN">
-                {m.brand} on Amazon UK
-              </AffiliateCTA>
-            </li>
-          ))}
-        </ul>
-      </section>
+      {hasLiveAffiliateLink(POWER_BANK_AFFILIATE_URL) && (
+        <section aria-labelledby="ctas-heading">
+          <h2 id="ctas-heading">Where to buy</h2>
+          <ul>
+            {models.map((m) => (
+              <li key={m.brand}>
+                <AffiliateCTA href={POWER_BANK_AFFILIATE_URL}>{m.brand} on Amazon UK</AffiliateCTA>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <section aria-labelledby="faq-heading">
         <h2 id="faq-heading">FAQ</h2>

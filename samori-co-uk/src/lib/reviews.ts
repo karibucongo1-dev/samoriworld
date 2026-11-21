@@ -180,6 +180,10 @@ export const reviews: Review[] = [
   },
 ];
 
+// Only verified entries are built, linked, listed in the sitemap or described in
+// llms.txt. Unverified entries stay in the data file as drafts but never ship.
+export const publishedReviews: Review[] = reviews.filter((r) => r.verified);
+
 export function getReview(slug: string): Review | undefined {
-  return reviews.find((r) => r.slug === slug);
+  return publishedReviews.find((r) => r.slug === slug);
 }
