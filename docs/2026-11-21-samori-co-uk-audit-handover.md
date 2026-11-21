@@ -6,7 +6,7 @@ Source audits: `samori-seo-ai-audit.pdf` (repo/static-build review) and `Samori_
 
 ## Deploy warning
 
-1. `deploy_tech.sh` runs `rsync -avz --delete ./out/ ... public_html/`. Anything on the server that is not in this build is deleted. That includes the live pages that are not in this repo, and potentially the `karibucongo.com` addon-domain folder if it sits inside `public_html/`.
+1. `deploy_tech.sh` runs `rsync -avz --delete ./out/ ... public_html/`. Anything on the server that is not in this build is deleted. That includes every live page that is not in this repo (about 36 product folders, `index.html`, `consent.js`, `subscribe.php`, `.htaccess`, `sitemap.xml`, `robots.txt`). The addon domain of samori.co.uk is `samori.io`; its folder is `/home/samoumbv/samori.io`, outside `public_html/`, so this rsync would not delete it. karibucongo.com is a separate site with its own `deploy-karibucongo.sh`.
 2. The live site has real `/mini2/`, `/lito1/`, `/neo2/` (and `/echo-dot/`, `/computers/`, legacy `.html` URLs, redirects). The repo only has "TBD" stubs for the first three. A build from this repo is therefore not equivalent to the live site.
 3. Before any deploy: copy what is on the server (cPanel File Manager backup), find where the live source lives, and use `rsync --dry-run` without `--delete` first.
 
