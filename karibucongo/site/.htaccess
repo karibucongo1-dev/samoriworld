@@ -1,3 +1,11 @@
+# 2026-11-22 SEO: legacy /discover-congo/ aliases are exact duplicates of /destinations/ pages (301)
+RedirectMatch 301 ^/discover-congo/brazzaville/?$ https://www.karibucongo.com/destinations/brazzaville/
+RedirectMatch 301 ^/discover-congo/kinshasa/?$ https://www.karibucongo.com/destinations/kinshasa/
+RedirectMatch 301 ^/discover-congo/kundelungu-national-park/?$ https://www.karibucongo.com/destinations/kundelungu-national-park/
+RedirectMatch 301 ^/discover-congo/lubumbashi/?$ https://www.karibucongo.com/destinations/lubumbashi/
+RedirectMatch 301 ^/discover-congo/muanda/?$ https://www.karibucongo.com/destinations/muanda/
+RedirectMatch 301 ^/discover-congo/pointe-noire/?$ https://www.karibucongo.com/destinations/pointe-noire/
+
 # Security rules (copied from samori.net, 26 Sep 2026)
 Options -Indexes
 <IfModule mod_headers.c>
@@ -31,3 +39,10 @@ Header set Cache-Control "no-cache, no-store, must-revalidate"
 Header set Pragma "no-cache"
 Header set Expires 0
 </FilesMatch>
+
+<Files 403.shtml>
+order allow,deny
+allow from all
+</Files>
+
+deny from 23.99.228.58

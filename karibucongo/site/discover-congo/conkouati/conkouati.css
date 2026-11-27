@@ -1,0 +1,91 @@
+/* Muanda guide: matches the Karibu Congo destination pages (Tailwind look: Inter, teal-600, rounded cards) */
+:root{--teal-300:#5eead4;--teal-400:#2dd4bf;--teal-50:#f0fdfa;--teal-600:#0d9488;--teal-700:#0f766e;
+--z50:#fafafa;--z100:#f4f4f5;--z400:#a1a1aa;--z500:#71717a;--z600:#52525b;--z900:#18181b;
+--bg:#fff;--fg:#000;--head:#18181b;--body:#52525b;--line:rgba(0,0,0,.05);--card:#fff;--mute:#a1a1aa}
+@media (prefers-color-scheme:dark){:root{--bg:#000;--fg:#fff;--head:#fafafa;--body:#a1a1aa;--line:rgba(255,255,255,.1);--card:#18181b;--mute:#71717a}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;border:0 solid}
+html{-webkit-text-size-adjust:100%}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--fg);min-height:100vh;display:flex;flex-direction:column;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
+main{flex:1}
+.wrap{max-width:72rem;margin:0 auto;padding:0 1.5rem}
+section.pad{padding-top:2rem;padding-bottom:2rem}
+/* header */
+header.top{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--line);background:rgba(255,255,255,.8);backdrop-filter:blur(12px)}
+@media (prefers-color-scheme:dark){header.top{background:rgba(0,0,0,.8)}}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:1rem;padding-bottom:1rem}
+.logo{font-size:1.25rem;font-weight:700;letter-spacing:-.025em;color:var(--head)}
+.logo span{color:var(--teal-600)}
+@media (prefers-color-scheme:dark){.logo span{color:var(--teal-400)}}
+nav.main{display:none;align-items:center;gap:2rem;font-size:.875rem;font-weight:500;color:var(--body)}
+nav.main a:hover{color:var(--head)}
+nav.main a.on{color:#0f766e}
+@media (min-width:640px){nav.main{display:flex}}
+/* hero */
+.hero{position:relative;overflow:hidden}
+.hero-box{position:relative;height:520px;width:100%}
+@media (min-width:640px){.hero-box{height:600px}}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero .shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.85),rgba(0,0,0,.2),rgba(0,0,0,.1))}
+.hero .txt{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end}
+.hero .txt .wrap{width:100%;padding-bottom:3rem}
+.eyebrow{font-size:.875rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--teal-300)}
+.hero h1{margin-top:.5rem;font-size:3rem;line-height:1;font-weight:700;color:#fff}
+.hero p.sub{margin-top:.75rem;max-width:42rem;font-size:1rem;color:#f4f4f5}
+@media (min-width:640px){.hero h1{font-size:3.75rem}.hero p.sub{font-size:1.125rem}}
+.crumb{font-size:.875rem;color:var(--z500)}
+.crumb a:hover{color:var(--head)}
+/* facts */
+.facts{margin-top:1.5rem;display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;border:1px solid var(--line);border-radius:1rem;padding:1.5rem}
+@media (min-width:640px){.facts{grid-template-columns:repeat(4,1fr)}}
+.lbl{font-size:.75rem;font-weight:500;text-transform:uppercase;letter-spacing:.025em;color:var(--z500)}
+.val{margin-top:.25rem;font-weight:600;color:var(--head)}
+.cta{margin-top:2rem;display:flex;flex-wrap:wrap;gap:.75rem}
+.btn{display:inline-block;border-radius:9999px;padding:.75rem 1.5rem;font-size:.875rem;font-weight:600}
+.btn.p{background:var(--teal-700);color:#fff}.btn.p:hover{background:#115e59}
+.btn.o{border:1px solid rgba(0,0,0,.1);color:var(--head)}.btn.o:hover{background:var(--z50)}
+@media (prefers-color-scheme:dark){.btn.o{border-color:rgba(255,255,255,.2)}.btn.o:hover{background:var(--card)}}
+/* text */
+h2.h{font-size:1.5rem;line-height:1.3;font-weight:700;letter-spacing:-.025em;color:var(--head)}
+@media (min-width:640px){h2.h{font-size:1.875rem}}
+.kick{margin-top:.5rem;font-weight:600;color:var(--head)}
+.lead{margin-top:.5rem;max-width:42rem;color:var(--body)}
+.intro{max-width:48rem;color:var(--body)}.intro p+p{margin-top:1rem}
+/* strip + cards */
+.strip{margin-top:2rem;display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+@media (min-width:640px){.strip{grid-template-columns:repeat(4,1fr)}}
+.strip div{position:relative;height:10rem;overflow:hidden;border-radius:1rem}
+.strip img,.card .im img{width:100%;height:100%;object-fit:cover}
+.grid{margin-top:1.5rem;display:grid;gap:1.5rem}
+@media (min-width:640px){.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}}
+.card{overflow:hidden;border-radius:1rem;border:1px solid var(--line);background:var(--card);box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.card .im{height:12rem;overflow:hidden}
+.card .bd{padding:1.25rem}
+.card .tag{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.025em;color:var(--teal-700)}
+.card h3{margin-top:.25rem;font-weight:600;color:var(--head)}
+.card p.d{margin-top:.25rem;font-size:.875rem;color:var(--body)}
+.card h3.solo{margin-top:0}
+.stats{margin-top:2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:32rem}
+.inl{margin-top:1.5rem}
+/* newsletter */
+.news{border-radius:1.5rem;background:var(--teal-700);padding:3rem 1.5rem;text-align:center}
+@media (min-width:640px){.news{padding:3rem}}
+.news h2{font-size:1.5rem;font-weight:700;color:#fff}
+@media (min-width:640px){.news h2{font-size:1.875rem}}
+.news p{margin:.5rem auto 0;max-width:28rem;color:var(--teal-50)}
+.news form{margin:1.5rem auto 0;display:flex;max-width:28rem;flex-direction:column;gap:.75rem}
+@media (min-width:640px){.news form{flex-direction:row}}
+.news input{width:100%;border-radius:9999px;padding:.75rem 1.25rem;font:inherit;font-size:.875rem;color:var(--z900);background:#fff}
+.news input:focus{outline:none}
+.news button{border-radius:9999px;background:#fff;padding:.75rem 1.5rem;font:inherit;font-size:.875rem;font-weight:600;color:var(--teal-700);cursor:pointer}
+.news button:hover{background:var(--teal-50)}
+/* footer */
+footer{border-top:1px solid var(--line)}
+footer .wrap{padding-top:3rem;padding-bottom:3rem}
+footer .about{margin-top:.75rem;max-width:28rem;font-size:.875rem;color:var(--body)}
+footer .cols{margin-top:2.5rem;display:grid;grid-template-columns:repeat(2,1fr);gap:2rem}
+@media (min-width:640px){footer .cols{grid-template-columns:repeat(4,1fr)}}
+footer h4,footer h3{font-size:.875rem;font-weight:600;color:var(--head)}
+footer nav{margin-top:1rem;display:flex;flex-direction:column;gap:.5rem;font-size:.875rem;color:var(--z500)}
+footer nav a:hover{color:var(--head)}
+footer .tag2{margin-top:2.5rem;border-top:1px solid var(--line);padding-top:1.5rem;font-size:.75rem;color:var(--z500)}

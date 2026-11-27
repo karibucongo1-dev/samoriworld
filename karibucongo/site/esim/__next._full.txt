@@ -30,5 +30,5 @@ f:["$","a","Drimsim",{"href":"https://drimsim.tpx.lu/QymqQje4","target":"_blank"
 15:["$","$L1b",null,{"children":["$","$19",null,{"name":"Next.MetadataOutlet","children":"$@1c"}]}]
 17:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
 1d:I[27201,["/_next/static/chunks/3rfwixvpft872.js"],"IconMark"]
-1a:[["$","title","0",{"children":"eSIM | Karibu Congo"}],["$","meta","1",{"name":"description","content":"Travel eSIMs from $4 — no roaming fees, no SIM swaps, no surprises on your bill."}],["$","link","2",{"rel":"canonical","href":"https://www.karibucongo.com/esim/"}],["$","link","3",{"rel":"icon","href":"/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1d","4",{}]]
+1a:[["$","title","0",{"children":"Travel eSIMs from $4: No Roaming Fees | Karibu Congo"}],["$","meta","1",{"name":"description","content":"Compare travel eSIM data plans for Europe, the US, Asia and worldwide trips, from $4. No roaming fees, no SIM swaps, and you install by scanning a QR code."}],["$","link","2",{"rel":"canonical","href":"https://www.karibucongo.com/esim/"}],["$","link","3",{"rel":"icon","href":"/favicon.ico?favicon.2vob68tjqpejf.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L1d","4",{}]]
 1c:null
