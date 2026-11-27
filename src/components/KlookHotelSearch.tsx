@@ -24,6 +24,10 @@ const DESTINATIONS = [
 
 const TRACKED = 'https://tp.media/r?campaign_id=137&marker=746332&p=4110&trs=551169&u=';
 
+// Agoda via CJ (publisher site 101874517, advertiser link 13989171). sid tags the site in CJ reports.
+const AGODA_TRACKED = 'https://www.anrdoezrs.net/click-101874517-13989171?sid=samori-net&url=';
+const AGODA_SEARCH = 'https://www.agoda.com/en-gb/search';
+
 function iso(d: Date) {
   return d.toISOString().slice(0, 10);
 }
@@ -62,6 +66,20 @@ export default function KlookHotelSearch() {
     });
     const target = 'https://www.klook.com/en-GB/hotels/searchresult/?' + params.toString();
     window.open(TRACKED + encodeURIComponent(target), '_blank', 'noopener');
+  }
+
+  function searchAgoda() {
+    const dest = DESTINATIONS.find((d) => String(d.id) === city) ?? DESTINATIONS[0];
+    const inDate = checkIn || addDays(iso(new Date()), 14);
+    const outDate = checkOut && checkOut > inDate ? checkOut : addDays(inDate, 2);
+    const nights = Math.max(1, Math.round((Date.parse(outDate) - Date.parse(inDate)) / 86400000));
+    const target =
+      AGODA_SEARCH +
+      '?textToSearch=' + encodeURIComponent(dest.override) +
+      '&checkIn=' + inDate +
+      '&los=' + nights +
+      '&rooms=1&adults=' + adults;
+    window.open(AGODA_TRACKED + encodeURIComponent(target), '_blank', 'noopener');
   }
 
   return (
@@ -103,10 +121,17 @@ export default function KlookHotelSearch() {
         >
           Search Hotels
         </button>
+        <button
+          type="button"
+          onClick={searchAgoda}
+          className="mt-1 shrink-0 rounded-xl border border-teal-600 px-6 py-3 text-sm font-semibold text-teal-700 transition-colors hover:bg-teal-50 dark:text-teal-300 dark:hover:bg-zinc-800 sm:mt-0"
+        >
+          Search Agoda
+        </button>
       </form>
       {error && <p role="alert" className="mt-2 text-sm text-red-600 dark:text-red-400">{error}</p>}
       <p className="mt-2 text-xs text-zinc-500 dark:text-zinc-400">
-        Opens hotel results on Klook in a new tab. We may earn a commission if you book, at no extra cost to you.
+        Opens hotel results on Klook or Agoda in a new tab. We may earn a commission if you book, at no extra cost to you.
       </p>
     </div>
   );

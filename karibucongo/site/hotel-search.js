@@ -10,6 +10,8 @@
 (function () {
   'use strict';
   var TRACKED = 'https://tp.media/r?campaign_id=137&marker=746332&p=4110&trs=551169&u=';
+  var AGODA_TRACKED = 'https://www.anrdoezrs.net/click-101874517-13989171?sid=karibucongo&url=';
+  var AGODA_SEARCH = 'https://www.agoda.com/en-gb/search';
   var DEST = [
     [7191, 'Nairobi', 'Nairobi, Kenya'],
     [20245, 'Mombasa', 'Mombasa, Kenya'],
@@ -68,11 +70,22 @@
       '<label class="kc-hs-f"><span>Check-in</span><input type="date" name="ci"></label>' +
       '<label class="kc-hs-f"><span>Check-out</span><input type="date" name="co"></label>' +
       '<label class="kc-hs-f"><span>Adults</span><select name="ad">' + adults + '</select></label>' +
-      '<button type="submit">Search Hotels</button></form>' +
+      '<button type="submit">Search Hotels</button><button type="button" class="kc-hs-agoda">Search Agoda</button></form>' +
       '<p class="kc-hs-err" role="alert" hidden></p>' +
-      '<p class="kc-hs-note">Hotels in Kinshasa are not available through our booking partner yet. Searches open hotel results on Klook in a new tab. We may earn a commission if you book, at no extra cost to you.</p>';
+      '<p class="kc-hs-note">Hotels in Kinshasa are not available through our booking partner yet. Searches open hotel results on Klook or Agoda in a new tab. We may earn a commission if you book, at no extra cost to you.</p>';
     var form = wrap.querySelector('form');
     var err = wrap.querySelector('.kc-hs-err');
+    var agodaBtn = wrap.querySelector('.kc-hs-agoda');
+    agodaBtn.addEventListener('click', function () {
+      var sel = form.elements['city'].value;
+      var dest = DEST.filter(function (d) { return String(d[0]) === sel; })[0] || DEST[0];
+      var inDate = form.elements['ci'].value || addDays(iso(new Date()), 14);
+      var co = form.elements['co'].value;
+      var outDate = co && co > inDate ? co : addDays(inDate, 2);
+      var nights = Math.max(1, Math.round((Date.parse(outDate) - Date.parse(inDate)) / 86400000));
+      var target = AGODA_SEARCH + '?textToSearch=' + encodeURIComponent(dest[2]) + '&checkIn=' + inDate + '&los=' + nights + '&rooms=1&adults=' + form.elements['ad'].value;
+      window.open(AGODA_TRACKED + encodeURIComponent(target), '_blank', 'noopener');
+    });
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var today = iso(new Date());

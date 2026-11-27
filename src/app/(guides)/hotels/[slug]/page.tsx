@@ -98,6 +98,13 @@ export default async function HotelGuidePage({ params }: PageProps) {
   const { slug } = await params;
   const guide = getHotelGuide(keyFromSlug(slug));
   if (!guide || guide.site !== SITE_ID) notFound();
+  const agodaCity = guide.key
+    .split('-')
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(' ');
+  const agodaUrl =
+    'https://www.anrdoezrs.net/click-101874517-13989171?sid=hotel-guide-' + SITE_ID +
+    '&url=' + encodeURIComponent('https://www.agoda.com/en-gb/search?textToSearch=' + encodeURIComponent(agodaCity));
 
   return (
     <>
@@ -164,6 +171,16 @@ export default async function HotelGuidePage({ params }: PageProps) {
               <p>
                 {guide.closingPrefix} <a href={absoluteUrl('/hotels/')}>Booking.com and Agoda</a>
                 {guide.closingSuffix}
+              </p>
+              <p className="mt-4">
+                <a
+                  href={agodaUrl}
+                  target="_blank"
+                  rel="sponsored nofollow noopener"
+                  className="inline-flex rounded-xl bg-teal-600 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-teal-700"
+                >
+                  Compare {agodaCity} hotel prices on Agoda
+                </a>
               </p>
             </div>
           </div>
