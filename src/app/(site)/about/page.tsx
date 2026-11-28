@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'About Samori World',
+  title: 'About Us',
   description:
-    'Who runs Samori World, how the site makes money from affiliate links, and who to contact about a booking.',
+    'Who runs Samori World, how the site makes money from affiliate links, and who to contact about a booking or reservation.',
   alternates: { canonical: '/about/' },
 };
 

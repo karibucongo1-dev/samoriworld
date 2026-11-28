@@ -5,7 +5,7 @@ import { CAR_RENTAL_WIDGET_SRC } from '@/lib/travelpayouts';
 
 export const metadata: Metadata = {
   title: 'Car Rental — Find a Rental Car',
-  description: 'Search local rental companies with Localrent, or compare with our other car rental partners.',
+  description: 'Find a rental car for your trip: search local rental companies with Localrent, or compare with our other car rental partners.',
   alternates: { canonical: '/car-rental/' },
 };
 

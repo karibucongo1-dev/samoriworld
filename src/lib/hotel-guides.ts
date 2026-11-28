@@ -15,6 +15,8 @@ export interface HotelGuide {
   site: SiteId;
   title: string;
   heroSubtitle: string;
+  /** Optional shorter text for the meta description (110-160 characters); falls back to heroSubtitle. */
+  metaDescription?: string;
   areas: HotelArea[];
   comparisonTable: { headers: string[]; rows: string[][] };
   faqs: { question: string; answer: string }[];
@@ -30,6 +32,8 @@ export const hotelGuides: HotelGuide[] = [
     key: 'dubai',
     site: 'samori-net',
     title: 'Where to Stay in Dubai',
+    metaDescription:
+      'Dubai is spread out, and the wrong base can mean an hour in taxis every day. How to choose the right area, plus stays and experiences worth booking.',
     heroSubtitle:
       "Dubai is spread out, and picking the wrong base can mean an hour of taxi rides every day. Here's how to choose the right area for your trip — plus the stays and experiences worth booking alongside it.",
     areas: [
@@ -175,6 +179,8 @@ export const hotelGuides: HotelGuide[] = [
     key: 'london',
     site: 'samori-net',
     title: 'Where to Stay in London',
+    metaDescription:
+      'London is huge, and the "right" area depends on the kind of trip you\'re after — history and icons, riverside culture, or a more local, less touristy feel.',
     heroSubtitle:
       'London is huge, and the "right" area depends heavily on what kind of trip you\'re after — history and icons, riverside culture, or a more local, less touristy feel.',
     areas: [

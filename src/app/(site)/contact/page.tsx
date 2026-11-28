@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Contact Samori World',
-  description: 'How to contact Samori World, and who to contact about an existing booking.',
+  description: 'How to contact Samori World with a question about the site, and who to contact about an existing booking with a partner.',
   alternates: { canonical: '/contact/' },
 };
 

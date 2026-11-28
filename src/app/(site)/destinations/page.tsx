@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Destination Guides',
-  description: 'Browse every Samori World destination guide — flights, stays, things to do, and more, all in one place.',
+  description: 'Browse every Samori World destination guide for Africa and beyond — flights, stays, things to do, and more, all in one place.',
   alternates: { canonical: '/destinations/' },
 };
 

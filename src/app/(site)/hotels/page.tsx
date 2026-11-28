@@ -3,7 +3,7 @@ import KlookHotelSearch from '@/components/KlookHotelSearch';
 
 export const metadata: Metadata = {
   title: 'Hotels — Find Your Stay',
-  description: 'Search hotels in our favourite destinations and book on Klook, with free cancellation on many stays.',
+  description: 'Search hotels in our favourite destinations and book on Klook, with free cancellation on many stays, plus where-to-stay guides.',
   alternates: { canonical: '/hotels/' },
 };
 

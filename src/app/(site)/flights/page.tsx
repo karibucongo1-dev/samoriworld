@@ -5,7 +5,7 @@ import { FLIGHTS_WIDGET_SRC } from '@/lib/travelpayouts';
 
 export const metadata: Metadata = {
   title: 'Compare Flights Worldwide',
-  description: 'Search and compare flights from many airlines and booking sites in one place with Samori World.',
+  description: 'Search and compare flights from many airlines and booking sites in one place with Samori World, and find a fare that suits your trip.',
   alternates: { canonical: '/flights/' },
 };
 

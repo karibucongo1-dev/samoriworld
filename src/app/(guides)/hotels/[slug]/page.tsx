@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `${guide.title} | ${SITE_NAME}`,
-    description: guide.heroSubtitle,
+    description: guide.metaDescription ?? guide.heroSubtitle,
     alternates: {
       canonical: absoluteUrl(`/hotels/where-to-stay-in-${guide.key}/`),
     },

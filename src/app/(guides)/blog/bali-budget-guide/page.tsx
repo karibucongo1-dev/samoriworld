@@ -5,7 +5,7 @@ import TravelpayoutsWidget from '@/components/TravelpayoutsWidget';
 export const metadata: Metadata = {
   title: 'Budget Travel Guide to Bali on $40 a Day',
   description:
-    'How to see Bali on roughly $40 a day: where to sleep, eat, and get around without blowing the budget.',
+    'A practical guide to seeing Bali on roughly $40 a day: where to sleep, eat, and get around without blowing the budget.',
   alternates: {
     canonical: 'https://www.samori.net/blog/bali-budget-guide/',
   },
