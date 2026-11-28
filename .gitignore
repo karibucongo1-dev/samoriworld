@@ -8,3 +8,8 @@ incoming/
 *.tsbuildinfo
 out-*/
 out-*.zip
+
+# Server-only secrets and runtime cache (never commit)
+karibucongo/site/kc-flights-config.php
+karibucongo/site/kc-stays-config.php
+karibucongo/site/kc-cache/

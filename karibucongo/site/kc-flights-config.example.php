@@ -5,7 +5,7 @@
 
 return [
     // From RapidAPI: your app's "X-RapidAPI-Key" (Google Flights Live API subscription).
-    'rapidapi_key'  => 'ee92fd8706msh85b294d613f64fep1dd6a5jsn9ec1279a1bf1',
+    'rapidapi_key'  => 'PASTE_YOUR_RAPIDAPI_KEY_HERE',
 
     // Copy these two from the RapidAPI playground's PHP/cURL snippet ("Roundtrip API" tab
     // and the one-way tab). Host looks like xxx.p.rapidapi.com, path like /roundtrip.
