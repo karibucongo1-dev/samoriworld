@@ -1,0 +1,79 @@
+# Samori World
+
+> Samori World is a travel guide and comparison site. It publishes destination and neighbourhood guides, and links to booking partners for flights, hotels, car rental, tours and attractions, and eSIMs. Some links are affiliate links; the site earns a commission if you book through them, at no extra cost to you. Bookings are completed with the partner, not on this site.
+
+Each guide covers where to stay, what to see, how to get there and how to get around.
+
+## Destination guides
+
+- [Abu Dhabi Travel Guide — Culture & Yas Island](https://www.samori.net/destinations/abu-dhabi/): Everything you need to plan a trip to Abu Dhabi: where to stay, the mosque and museums, Yas Island's parks, a desert safari, and a sample itinerary.
+- [Brazzaville Travel Guide — Hotels & Sights](https://www.samori.net/destinations/brazzaville/): Brazzaville travel guide: where to stay, riverside terraces, the Basilique Sainte-Anne and day trips to the Lesio-Louna gorillas.
+- [Conkouati-Douli National Park Guide](https://www.samori.net/destinations/conkouati/): Guide to Conkouati-Douli National Park, Republic of Congo: gorillas, forest elephants, chimpanzee islands, humpback whales and how to get there.
+- [Doha Travel Guide — Souqs, Skyline & Desert](https://www.samori.net/destinations/doha/): Everything you need to plan a trip to Doha: where to stay
+between West Bay and The Pearl, the best souqs, museums and desert safaris,
+and a sample itinerary.
+- [Dubai Travel Guide — Towers, Palm & Desert](https://www.samori.net/destinations/dubai/): Everything you need to plan a trip to Dubai: the Burj Khalifa, Palm Jumeirah, the Marina, a desert day out, and a sample itinerary.
+- [Istanbul Travel Guide — Domes & Bazaars](https://www.samori.net/destinations/istanbul/): Everything you need to plan a trip to Istanbul: Hagia Sophia, the Blue Mosque, the Grand Bazaar, a Bosphorus ferry, and a sample itinerary.
+- [Kenya Travel Guide — Safari, Coast & Nairobi](https://www.samori.net/destinations/kenya/): Kenya travel guide: safari in the Maasai Mara and Amboseli, Nairobi's Giraffe Centre, coast stays, best time to go and where to fly into.
+- [Kinshasa Travel Guide — Hotels & Sights](https://www.samori.net/destinations/kinshasa/): Everything you need to plan a trip to Kinshasa: where to stay, what to see, and how to get there — no stock photography, just the real thing.
+- [Kuala Lumpur Travel Guide — Skyline & Food](https://www.samori.net/destinations/kuala-lumpur/): Kuala Lumpur travel guide: Petronas Towers, Jalan Alor street food, KLCC and Bukit Bintang hotels, malls and a simple 4-day route.
+- [London Destination Guide](https://www.samori.net/destinations/london/): London travel guide: where to stay, what to see, and where to eat. Royal history, riverside icons, and a hotel scene built for a splurge.
+- [Los Angeles Destination Guide](https://www.samori.net/destinations/los-angeles/): Los Angeles travel guide: where to stay, what to see and where to eat, from Hollywood and Griffith Observatory to the Getty.
+- [Manchester Travel Guide — Football & Museums](https://www.samori.net/destinations/manchester/): Manchester travel guide: where to stay, museums and libraries, football history and music heritage, plus how to get there.
+- [Marrakech Travel Guide — Palaces & Souks](https://www.samori.net/destinations/marrakech/): Marrakech travel guide: where to stay, Bahia Palace, Jardin Majorelle, Jemaa el-Fnaa, rooftop dining and a simple 4-day route.
+- [Mauritius Travel Guide — Beaches & Le Morne](https://www.samori.net/destinations/mauritius/): Mauritius travel guide: beaches, islands, waterfalls and Le Morne, with where to stay and how to get around the island.
+- [Muanda Travel Guide — Hotels & Sights](https://www.samori.net/destinations/muanda/): Muanda travel guide: Atlantic beaches, Mangroves National Park, sea turtles, where to stay and eat, and how to get there.
+- [New York Travel Guide — Skyline & Museums](https://www.samori.net/destinations/new-york/): Plan your New York trip: where to stay in Midtown, the sights worth the line, Central Park, Broadway, and how to get in and out of JFK without the stress.
+- [Paris Travel Guide — Icons & Neighborhoods](https://www.samori.net/destinations/paris/): Everything you need to plan a Paris trip — where to stay, what to see, day trips to Versailles, and a simple route to follow.
+- [Pointe-Noire Travel Guide — Hotels & Sights](https://www.samori.net/destinations/pointe-noire/): Everything you need to plan a trip to Pointe-Noire: where to stay, where to eat, what to see, and how to get there by air or from Pointe-Noire.
+- [Rome Travel Guide — Ruins, Piazzas & Pasta](https://www.samori.net/destinations/rome/): Rome travel guide: where to stay, the Vatican, Colosseum and Trevi Fountain, rooftop dining, getting there and a 4-day route.
+- [Seychelles Travel Guide — Beaches & Islands](https://www.samori.net/destinations/seychelles/): Everything you need to plan a trip to Seychelles: Anse Lazio, Anse Source d'Argent, Vallée de Mai, where to stay, and a sample itinerary.
+- [Singapore Travel Guide — Gardens & Hawkers](https://www.samori.net/destinations/singapore/): Everything you need to plan a trip to Singapore: Marina Bay Sands, Gardens by the Bay, hawker centres, the southern islands, and a sample itinerary.
+- [Tokyo Destination Guide](https://www.samori.net/destinations/tokyo/): Tokyo travel guide: where to stay, what to see, and where to eat. Senso-ji, Shibuya, Ginza, Shinjuku and the best gardens and hotels.
+- [Johannesburg Travel Guide](https://www.samori.net/destinations/johannesburg/): Everything you need to plan a trip to Johannesburg: the Apartheid Museum, Soweto, Sandton, safari parks on the city’s doorstep, and a sample itinerary.
+- [Cairo Travel Guide](https://www.samori.net/destinations/cairo/): Everything you need to plan a trip to Cairo: the Pyramids of Giza, the Grand Egyptian Museum, the Citadel, where to stay, and a sample itinerary.
+- [Barcelona Travel Guide](https://www.samori.net/destinations/barcelona/): Everything you need to plan a trip to Barcelona: Gaudí's Sagrada Família, the Gothic Quarter, La Boqueria, where to stay, and a sample itinerary.
+- [Maldives Travel Guide](https://www.samori.net/destinations/maldives/): Everything you need to plan a trip to the Maldives: snorkelling, sandbanks, where to stay, how to get to the islands, and a sample itinerary.
+
+## Where to stay
+
+- [Where to Stay in Doha](https://www.samori.net/hotels/where-to-stay-in-doha/): Doha is compact compared to other Gulf cities, but the areas still feel distinct — modern skyline, old-world souq, or man-made island resort.
+- [Where to Stay in Dubai](https://www.samori.net/hotels/where-to-stay-in-dubai/): Where to stay in Dubai: how to choose the right area in a spread-out city, plus the stays and experiences worth booking alongside it.
+- [Where to Stay in Kenya](https://www.samori.net/hotels/where-to-stay-in-kenya/): Kenya isn't a one-base trip — most itineraries split time between Nairobi, a safari region, and often the coast. Here's how to structure it.
+- [Where to Stay in London](https://www.samori.net/hotels/where-to-stay-in-london/): Where to stay in London: choosing the right area for history and icons, riverside culture or a more local, less touristy feel.
+
+## Search and booking tools
+
+- [Compare Flights Worldwide](https://www.samori.net/flights/): Search and compare flights across many airlines and booking sites at once, then book directly with the provider you choose.
+- [Hotels — Find Your Stay](https://www.samori.net/hotels/): Search hotels in our favourite destinations and book on Klook, with free cancellation on many stays. Compare stays before you book.
+- [Car Rental — Find a Rental Car](https://www.samori.net/car-rental/): Rent a car wherever you travel: search local rental companies with Localrent or compare other partners, with clear prices and low deposits.
+- [Things to Do – Tours & Attractions](https://www.samori.net/things-to-do/): Book tours and attractions worldwide with skip-the-line tickets, real reviews, vetted operators and free cancellation on most bookings.
+- [Travel eSIMs](https://www.samori.net/esim/): Compare travel eSIM providers for Europe, the US, Asia and global trips, and check phone compatibility before you buy.
+
+## Articles
+
+- [Budget Travel Guide to Bali on $40 a Day](https://www.samori.net/blog/bali-budget-guide/): How to travel Bali on about $40 a day: budget guesthouses, local warungs and a scooter, with a breakdown of where the money goes.
+
+## About
+
+- [About Us](https://www.samori.net/about/): About Samori World: a travel guide and comparison site. Who runs it, how affiliate links fund it, and who to contact about a booking.
+- [Contact Us](https://www.samori.net/contact/): Contact Samori World. We can't see, change or cancel bookings, so for tickets, changes or refunds contact the company you booked with.
+
+## Optional
+
+- [Destination Guides](https://www.samori.net/destinations/): Browse Samori World's destination guides, one per place, covering flights, neighbourhoods, things to do and everything else for your trip.
+- [BAGSMART Hanging Toiletry Bag](https://www.samori.net/bagsmart/): BAGSMART hanging toiletry bag with four see-through compartments, a swivel hook and elastic bottle loops. Water-resistant, in medium and large.
+- [BAGSMART Clear Toiletry Bags, 2 Pack](https://www.samori.net/bagsmart-2pcs/): Two clear, water-resistant BAGSMART toiletry bags sized for 100 ml travel liquids, quick to lift out at airport security. Holds four bottles.
+- [Stover Convertible Garment Duffel Bag - Samori World](https://www.samori.net/stover/): Stover convertible garment duffel: lay-flat garment section, shoe compartment, size and trade-offs. What to check before buying on Amazon UK.
+- [Stover Women’s Garment Duffel Bag: Size & Features | Samori](https://www.samori.net/stover-women/): Explore the Stover women’s garment duffel bag: packing features, dimensions, travel trade-offs and what to check before buying on Amazon UK.
+- [Luhxe Convertible Travel Bag — One bag. Two trips ahead.](https://www.samori.net/luhxe/): The Luhxe Convertible Travel Bag unzips flat into a garment carrier, so one outfit stays pressed while the rest packs around it. Vegan leather, carry-on sized.
+- [Lyca Mobile — Stay Connected on the Go](https://www.samori.net/lycamobile/): A US prepaid SIM with unlimited nationwide talk and text, 5G data, and international calls to 100+ countries built in. No contract. Plans from $10.
+
+Sitemap: https://www.samori.net/sitemap.xml
+- [Samsonite Suitcase Guides: Cabin and Check-in Sizes Compared](https://www.samori.net/luggage/): Compare four Samsonite suitcases side by side: Neopulse 55 cm cabin, Lite-Box 75 cm, S’Cure 75 cm and Base Boost 78 cm. Size, weight, lock and trade-offs, with links to each full guide.
+- [Samsonite Neopulse Spinner 55 cm, 42 L Cabin Suitcase](https://www.samori.net/samsonite-neopulse-spinner/): Samsonite Neopulse Spinner 55 cm, Graphite: 42 L, 2.9 kg polycarbonate shell, built-in TSA lock. Size, trade-offs and what to check before buying on Amazon UK.
+- [Samsonite Lite-Box Spinner 75 cm, 98 L Check-in Suitcase](https://www.samori.net/samsonite-litebox/): Samsonite Lite-Box Spinner 75 cm, Black: 98 L, 3.1 kg Curv hardside shell, built-in TSA lock. Size, trade-offs and what to check before buying on Amazon UK.
+- [Samsonite S'Cure Spinner 75 cm, 102 L](https://www.samori.net/samsonite-scure-spinner/): Samsonite S'Cure Spinner 75 cm, 102 L: three-point latch, TSA lock, 4.6 kg shell. Size, trade-offs and what to check before buying on Amazon UK.
+- [Samsonite Base Boost Spinner 78 cm, 105 L Expandable](https://www.samori.net/samsonite-base-boost-spinner/): Samsonite Base Boost Spinner 78 cm: 105 L expanding to 112.5 L, 3.1 kg, built-in TSA lock. Size, trade-offs and what to check before buying on Amazon UK.
+- [Patagonia Black Hole Duffel 55L](https://www.samori.net/patagonia/): Patagonia Black Hole Duffel 55L: recycled ripstop, removable backpack straps, 55 litres. Size, trade-offs and what to check before buying on Amazon UK.
+- [Belkin Travel Bag for Apple Vision Pro](https://www.samori.net/belkin-travelbag/): A padded cross-body bag for Apple Vision Pro, with a cushioned lens pillow, hidden AirTag compartment and adjustable strap. Check the price at Belkin.
