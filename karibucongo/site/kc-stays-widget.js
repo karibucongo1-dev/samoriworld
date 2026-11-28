@@ -92,6 +92,23 @@ form.appendChild(field('Adults', sel, 'ks-guests'));
 var sw = el('div', 'ks-submit'); sw.appendChild(go); form.appendChild(sw);
 box.appendChild(form);
 
+/* Agoda search (Commission Junction tracked). Opens Agoda for the chosen dates in a new tab. */
+var AGODA_NAMES = { 'kinshasa': 'Kinshasa, Democratic Republic of the Congo', 'brazzaville': 'Brazzaville, Republic of the Congo', 'lubumbashi': 'Lubumbashi, Democratic Republic of the Congo', 'pointe-noire': 'Pointe-Noire, Republic of the Congo', 'dubai': 'Dubai, United Arab Emirates', 'doha': 'Doha, Qatar' };
+if (AGODA_NAMES[dest]) {
+  var ag = el('a', 'ks-agoda', 'Search ' + title + ' hotels on Agoda');
+  ag.href = '#'; ag.target = '_blank'; ag.rel = 'noopener sponsored';
+  ag.style.cssText = 'display:inline-block;margin:10px 0 0;padding:10px 16px;border:1px solid #0b5fff;border-radius:8px;color:#0b5fff;font-weight:600;text-decoration:none';
+  ag.addEventListener('click', function (e) {
+    var ci = inIn.value || ymd(start), co = inOut.value;
+    if (!co || co <= ci) co = ymd(addDays(parseYmd(ci), defNights));
+    var nights = Math.max(1, Math.round((parseYmd(co) - parseYmd(ci)) / 86400000));
+    var target = 'https://www.agoda.com/en-gb/search?textToSearch=' + encodeURIComponent(AGODA_NAMES[dest]) + '&checkIn=' + ci + '&los=' + nights + '&rooms=1&adults=' + sel.value;
+    ag.href = 'https://www.anrdoezrs.net/click-101874517-13989171?sid=karibucongo-' + dest + '&url=' + encodeURIComponent(target);
+  });
+  box.appendChild(ag);
+  box.appendChild(el('p', 'ks-sub', 'Agoda link: we may earn a commission if you book, at no extra cost to you.'));
+}
+
 var msg = el('p', 'ks-msg', 'Pick your dates and press Search.');
 msg.setAttribute('role', 'status');
 msg.setAttribute('aria-live', 'polite');

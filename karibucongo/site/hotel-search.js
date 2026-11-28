@@ -29,7 +29,10 @@
     [107, 'Paris', 'Paris, France'],
     [93, 'New York', 'New York, United States'],
     [6, 'Singapore', 'Singapore'],
-    [49, 'Kuala Lumpur', 'Kuala Lumpur, Malaysia']
+    [49, 'Kuala Lumpur', 'Kuala Lumpur, Malaysia'],
+    /* Agoda only: Klook has no hotels here (id 0 = no Klook search). */
+    [0, 'Kinshasa (Agoda)', 'Kinshasa, Democratic Republic of the Congo'],
+    [-1, 'Brazzaville (Agoda)', 'Brazzaville, Republic of the Congo']
   ];
   var TEXT = [
     ['We check Booking.com, Agoda, and more so you get the best rate \u2014 free cancellation on most stays.',
@@ -72,7 +75,7 @@
       '<label class="kc-hs-f"><span>Adults</span><select name="ad">' + adults + '</select></label>' +
       '<button type="submit">Search Hotels</button><button type="button" class="kc-hs-agoda">Search Agoda</button></form>' +
       '<p class="kc-hs-err" role="alert" hidden></p>' +
-      '<p class="kc-hs-note">Hotels in Kinshasa are not available through our booking partner yet. Searches open hotel results on Klook or Agoda in a new tab. We may earn a commission if you book, at no extra cost to you.</p>';
+      '<p class="kc-hs-note">Kinshasa and Brazzaville hotels are searched on Agoda only (Klook has none there). Searches open hotel results on Klook or Agoda in a new tab. We may earn a commission if you book, at no extra cost to you.</p>';
     var form = wrap.querySelector('form');
     var err = wrap.querySelector('.kc-hs-err');
     var agodaBtn = wrap.querySelector('.kc-hs-agoda');
@@ -91,6 +94,11 @@
       var today = iso(new Date());
       var id = form.city.value;
       var dest = DEST.filter(function (d) { return String(d[0]) === id; })[0] || DEST[0];
+      if (dest[0] <= 0) {
+        err.textContent = 'Klook has no hotels in ' + dest[1].replace(' (Agoda)', '') + '. Use Search Agoda instead.';
+        err.hidden = false;
+        return;
+      }
       var ci = form.ci.value || addDays(today, 14);
       var co = form.co.value || addDays(ci, 3);
       var problem = ci < today ? 'Check-in cannot be in the past.' : (co <= ci ? 'Check-out must be after check-in.' : '');
