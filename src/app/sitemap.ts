@@ -26,8 +26,15 @@ function handMadeRoutes(): string[] {
     for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
       const full = path.join(dir, entry.name);
       if (entry.isDirectory()) walk(full);
-      else if (entry.name === 'index.html' && !/name="robots"\s+content="noindex/.test(fs.readFileSync(full, 'utf8'))) {
-        routes.push('/' + path.relative(root, dir).split(path.sep).join('/') + '/');
+      else if (entry.name === 'index.html') {
+        const html = fs.readFileSync(full, 'utf8');
+        const route = '/' + path.relative(root, dir).split(path.sep).join('/') + '/';
+        if (/name="robots"\s+content="noindex/.test(html)) continue;
+        // Leave out pages whose canonical points to another page or site (e.g. copies kept
+        // on karibucongo.com); a sitemap should list only a page's own canonical URL.
+        const canonical = html.match(/rel="canonical"\s+href="([^"]*)"/)?.[1];
+        if (canonical && canonical !== absoluteUrl(route)) continue;
+        routes.push(route);
       }
     }
   };
